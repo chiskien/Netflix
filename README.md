@@ -1,4 +1,19 @@
-# Netflix Clone using React Typescript and Vite 
+# Netflix Clone
 
+## Front-end
 
-## Styling: CharkaUI
+### React, Vite, TypeScript, Redux
+
+### CharkaUI, Sass
+
+### Firebase
+
+## Back-end
+
+### Spring Boot 
+
+### Spring Data, Hibernate
+
+### MySQL, Redis, MongoDB
+
+### 
