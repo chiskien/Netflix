@@ -26,11 +26,7 @@ export type Movie = {
     release_date: string;
     poster_path: string;
     overview: string;
-    genres: Genre[];
-    images?: {
-        backdrops: Image[];
-        posters: Image[];
-    }
+
 }
 export type Response<T> = {
     page: number;

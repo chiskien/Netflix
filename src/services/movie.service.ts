@@ -16,7 +16,7 @@ export async function getTopRatedMovies(page = 1): Promise<Response<Movie[]>> {
 }
 
 export async function getUpComingMovies(page = 1): Promise<Response<Movie[]>> {
-    const response = await fetch(`${tmdbApi}/movie/upcoming?api_key=${key}$page=${page}`);
+    const response = await fetch(`${tmdbApi}/movie/upcoming?api_key=${key}&page=${page}`);
     return await response.json();
 }
 
