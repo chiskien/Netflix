@@ -1,23 +1,30 @@
 import './App.css'
-import {Navbar} from "./components/Navbar/Navbar";
 import {useEffect, useState} from "react";
-import {MovieList} from "./components/MovieList/MovieList";
-import {getLatestMovies} from "./services/movie.service";
-import {Movie} from "./models/Movie";
+import {getGenres, getLatestMovies} from "./services/movie.service";
+import {Genre, Movie} from "./models/Movie";
+import {MovieCard} from "./components/MovieList/MovieCard";
+import {GenreList} from "./components/Genre/GenreList";
 
 function App() {
-    const [movies, setMovies] = useState<Movie[]>([]);
-
+    const [latestMovie, setLatestMovies] = useState<Movie>({id: 0, title: ""});
+    const [genres, setGenres] = useState<Genre[]>([]);
     useEffect(() => {
-        loadLatestMovies().then(r => console.log(r));
+        // loadLatestMovies();
+        loadGenres();
     }, [])
-    const loadLatestMovies = async () => {
-        const latestMovies: Movie[] = await getLatestMovies();
-        setMovies(latestMovies);
+    // const loadLatestMovies = async () => {
+    //     const latestMovie: Movie = await getLatestMovies();
+    //     setLatestMovies(latestMovie);
+    // }
+    const loadGenres = async () => {
+        const response = await getGenres();
+        const genres: Genre[] = response.genres;
+        setGenres(genres);
     }
     return (
         <div>
-            <MovieList movies={movies}/>
+            {/*<MovieCard movie={latestMovie}/>*/}
+            <GenreList genres={genres}/>
         </div>
     )
 }
