@@ -3,7 +3,7 @@ import {Movie} from "../../models/Movie";
 import {getPopularMovies, getTopRatedMovies, getUpComingMovies} from "../../services/movie.service";
 import {MovieList} from "../MovieList/MovieList";
 import {Navbar} from "../Navbar/Navbar";
-import {Container, Heading} from "@chakra-ui/react";
+import {Box, Container, Heading} from "@chakra-ui/react";
 
 export const HomePage = () => {
     const [popularMovies, setPopularMovies] = useState<Movie[]>([]);
@@ -31,15 +31,17 @@ export const HomePage = () => {
         setUpComingMovies(upComingMovies);
     }
     return (
-        <div>
-            <Heading as={"h2"} size={"2xl"} margin={"20px"}>Most popular Movies</Heading>
-            <MovieList movies={popularMovies}/>
-            <hr/>
-            <Heading as={"h2"} size={"2xl"} margin={"20px"}>Most Rated Movies</Heading>
-            <MovieList movies={topRatedMovies}/>
-            <hr/>
-            <Heading as={"h2"} size={"2xl"} margin={"20px"}>UpComing Movies</Heading>
-            <MovieList movies={upComingMovies}/>
-        </div>
+        <Container maxW={"container.lg"}>
+            <Box border={"1px"}>
+                <Heading textColor={"#F5F5F4"} as={"h2"} size={"2xl"} marginBottom={"20px"}>Most popular
+                    Movies</Heading>
+                <MovieList movies={popularMovies}/>
+            </Box>
+            <Box>
+                <Heading textColor={"#F5F5F4"} as={"h2"} size={"2xl"} margin={"20px"}>Most Rated Movies</Heading>
+                <MovieList movies={topRatedMovies}/>
+            </Box>
+
+        </Container>
     )
 }

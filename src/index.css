@@ -4,3 +4,8 @@
     box-sizing: border-box;
     font-family: Sniglet, sans-serif;
 }
+
+@font-face {
+    font-family: "Sniglet";
+    src: url("assets/fonts/Sniglet-Regular.ttf");
+}

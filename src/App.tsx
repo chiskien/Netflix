@@ -6,10 +6,10 @@ import {Container} from "@chakra-ui/react";
 
 function App() {
     return (
-        <div>
+        <Container margin={"0"} padding={"0"} maxW={"100vw"} className={"container"}>
             <Navbar/>
             <HomePage/>
-        </div>
+        </Container>
     )
 }
 
