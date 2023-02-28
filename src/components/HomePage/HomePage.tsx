@@ -1,8 +1,9 @@
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Movie} from "../../models/Movie";
 import {getPopularMovies, getTopRatedMovies, getUpComingMovies} from "../../services/movie.service";
 import {MovieList} from "../MovieList/MovieList";
 import {Navbar} from "../Navbar/Navbar";
+import {Container, Heading} from "@chakra-ui/react";
 
 export const HomePage = () => {
     const [popularMovies, setPopularMovies] = useState<Movie[]>([]);
@@ -30,16 +31,16 @@ export const HomePage = () => {
         setUpComingMovies(upComingMovies);
     }
     return (
-        <div>
+        <Container maxW={"100vw"} marginY={"20px"}>
             <Navbar/>
-            <h1>Most popular Movies</h1>
+            <Heading as={"h2"} size={"2xl"} margin={"20px"}>Most popular Movies</Heading>
             <MovieList movies={popularMovies}/>
             <hr/>
-            <h1>Most Rated Movies</h1>
+            <Heading as={"h2"} size={"2xl"} margin={"20px"}>Most Rated Movies</Heading>
             <MovieList movies={topRatedMovies}/>
             <hr/>
-            <h1>UpComing Movies</h1>
+            <Heading as={"h2"} size={"2xl"} margin={"20px"}>UpComing Movies</Heading>
             <MovieList movies={upComingMovies}/>
-        </div>
+        </Container>
     )
 }
