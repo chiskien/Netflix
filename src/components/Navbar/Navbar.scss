@@ -1,4 +1,6 @@
-.nav__content {
-  display: flex;
-  justify-content: space-between;
+.nav {
+  &__content {
+    display: flex;
+    justify-content: space-between;
+  }
 }
