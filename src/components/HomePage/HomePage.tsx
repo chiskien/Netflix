@@ -31,8 +31,7 @@ export const HomePage = () => {
         setUpComingMovies(upComingMovies);
     }
     return (
-        <Container maxW={"100vw"} marginY={"20px"}>
-            <Navbar/>
+        <div>
             <Heading as={"h2"} size={"2xl"} margin={"20px"}>Most popular Movies</Heading>
             <MovieList movies={popularMovies}/>
             <hr/>
@@ -41,6 +40,6 @@ export const HomePage = () => {
             <hr/>
             <Heading as={"h2"} size={"2xl"} margin={"20px"}>UpComing Movies</Heading>
             <MovieList movies={upComingMovies}/>
-        </Container>
+        </div>
     )
 }
