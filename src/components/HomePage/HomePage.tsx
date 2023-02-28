@@ -2,6 +2,7 @@ import {useEffect, useState} from "react";
 import {Movie} from "../../models/Movie";
 import {getPopularMovies, getTopRatedMovies, getUpComingMovies} from "../../services/movie.service";
 import {MovieList} from "../MovieList/MovieList";
+import {Navbar} from "../Navbar/Navbar";
 
 export const HomePage = () => {
     const [popularMovies, setPopularMovies] = useState<Movie[]>([]);
@@ -30,6 +31,7 @@ export const HomePage = () => {
     }
     return (
         <div>
+            <Navbar/>
             <h1>Most popular Movies</h1>
             <MovieList movies={popularMovies}/>
             <hr/>
