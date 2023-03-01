@@ -2,8 +2,8 @@ import React, {useEffect, useState} from "react";
 import {Movie} from "../../models/Movie";
 import {getPopularMovies, getTopRatedMovies, getUpComingMovies} from "../../services/movie.service";
 import {MovieList} from "../MovieList/MovieList";
-import {Navbar} from "../Navbar/Navbar";
 import {Box, Container, Heading} from "@chakra-ui/react";
+import {Banner} from "../Banner/Banner";
 
 export const HomePage = () => {
     const [popularMovies, setPopularMovies] = useState<Movie[]>([]);
@@ -32,13 +32,16 @@ export const HomePage = () => {
     }
     return (
         <Container maxW={"container.lg"}>
-            <Box border={"1px"}>
-                <Heading textColor={"#F5F5F4"} as={"h2"} size={"2xl"} marginBottom={"20px"}>Most popular
-                    Movies</Heading>
+            <Box>
+            </Box>
+            <Box>
+                <Heading as={"h2"} size={"2xl"} marginBottom={"20px"} textColor={"#F5F5F4"}>
+                    Most popular Movies</Heading>
                 <MovieList movies={popularMovies}/>
             </Box>
             <Box>
-                <Heading textColor={"#F5F5F4"} as={"h2"} size={"2xl"} margin={"20px"}>Most Rated Movies</Heading>
+                <Heading as={"h2"} size={"2xl"} margin={"20px"} textColor={"#F5F5F4"}>
+                    Most Rated Movies</Heading>
                 <MovieList movies={topRatedMovies}/>
             </Box>
 

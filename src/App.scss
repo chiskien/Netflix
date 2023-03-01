@@ -1,0 +1,23 @@
+@import url(assets/styles/style.scss);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 700;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+.container {
+  background: #202020; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #434343, #202020); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #434343, #202020); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}

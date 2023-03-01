@@ -43,3 +43,12 @@ export type Genre = {
 export type ResponseGenre = {
     genres: Genre[];
 }
+
+export type TV = {
+    id: number;
+    backdrop_path: string | null;
+    poster_path: string | null;
+    name: string;
+    original_name: string;
+    overview: string;
+}

@@ -8,12 +8,11 @@ type MovieProps = {
 }
 export const MovieList: React.FC<MovieProps> = ({movies}) => {
     return (
-        <Box>
-            <SimpleGrid columns={4} spacing="10px">
-                {
-                    movies.map((movie) => (
-                        <MovieCard movie={movie}/>))
-                }
-            </SimpleGrid>
-        </Box>);
+        <SimpleGrid columns={4} spacing="10px">
+            {
+                movies.map((movie) => (
+                    <MovieCard key={movie.id} movie={movie}/>))
+            }
+        </SimpleGrid>
+    );
 }
