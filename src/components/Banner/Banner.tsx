@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from "react";
+import "./Banner.scss";
 import {TV} from "../../models/Movie";
 import {getNetflixOriginal, getRandomNumber} from "../../services/netflix-original.service";
-import {Box, Button, Heading} from "@chakra-ui/react";
+import {Box, Button, Heading, Text} from "@chakra-ui/react";
 
 export const Banner: React.FC = () => {
     const [heroSectionSeries, setHeroSectionSeries] = useState<TV>({
@@ -34,17 +35,26 @@ export const Banner: React.FC = () => {
             objectFit: "contain",
             minHeight: "650px"
         }}>
-            <div className="banner__contents">
-                <Heading as={"h2"} size={"xl"} className="banner__title">
+            <Box className={"banner__contents"}>
+                <Heading as={"h2"} size={"3xl"} className="banner__title">
                     {heroSectionSeries.name}
                 </Heading>
                 <Box className="banner__button">
-                    <Button colorScheme={"teal"} variant={"solid"}
-                            className={"banner__button"}>Watch Now</Button>
-                    <Button colorScheme={"teal"} variant={"solid"}
-                            className={"banner__button"}>Add to list</Button>
+                    <Button colorScheme={"teal"} bgColor={"teal.400"} variant={"solid"}
+                            className={"banner__button"}>
+                        Watch
+                    </Button>
+                    <Button colorScheme={"teal"} bgColor={"teal.400"} variant={"solid"}
+                            className={"banner__button"}>
+                        Add to list
+                    </Button>
                 </Box>
-            </div>
+                <Text fontSize={"1.3rem"} className={"banner__description"}>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab asperiores delectus dolor dolore
+                    ducimus eum exercitationem hic id illum libero minima omnis placeat, quaerat tempore totam,
+                    voluptates, voluptatum? Est, sapiente?
+                </Text>
+            </Box>
         </Box>
     )
 }
