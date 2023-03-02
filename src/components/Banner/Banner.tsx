@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from "react";
 import "./Banner.scss";
-import {DiscoverTv, TV} from "../../models/Movie";
 import {getNetflixOriginal} from "../../services/netflix-original.service";
 import {Box, Button, Heading, Text} from "@chakra-ui/react";
 import {getRandomNumber, truncate} from "../../helpers/helper";
+import {TV} from "../../models/Movie";
 
 export const Banner: React.FC = () => {
-    const [heroSectionSeries, setHeroSectionSeries] = useState<DiscoverTv>({
+    const [heroSectionSeries, setHeroSectionSeries] = useState<TV>({
         adult: false,
         genre_ids: [],
         original_language: "",
@@ -27,8 +27,8 @@ export const Banner: React.FC = () => {
 
     const loadNetflixOriginal = async () => {
         const response = await getNetflixOriginal();
-        const netflixOriginalSeries: DiscoverTv[] = response.results;
-        const randomHeroSectionSeries: DiscoverTv =
+        const netflixOriginalSeries: TV[] = response.results;
+        const randomHeroSectionSeries: TV =
             await netflixOriginalSeries[getRandomNumber(netflixOriginalSeries.length)];
         console.log(randomHeroSectionSeries);
         setHeroSectionSeries(randomHeroSectionSeries);
@@ -50,7 +50,7 @@ export const Banner: React.FC = () => {
         }}>
             <Box className={"banner__contents"}>
                 <Box>
-                    <Heading as={"h1"} fontSize={"2.5rem"} textColor={"teal.50"}
+                    <Heading as={"h1"} fontSize={"3rem"} textColor={"teal.50"}
                              className="banner__title">
                         {heroSectionSeries?.name}
                     </Heading>
@@ -74,12 +74,6 @@ export const Banner: React.FC = () => {
                 </Box>
             </Box>
             <div className="banner__fadeBottom">
-
-            </div>
-            <div className="banner__fadeLeft">
-
-            </div>
-            <div className="banner__fadeRight">
 
             </div>
         </Box>

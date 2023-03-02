@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import {Movie, TV} from "../../models/Movie";
 import {getPopularMovies, getTopRatedMovies, getUpComingMovies} from "../../services/movie.service";
 import {MovieList} from "../MovieList/MovieList";
-import {Box, Container} from "@chakra-ui/react";
+import {Box, Container, Text} from "@chakra-ui/react";
 import {getNetflixOriginal} from "../../services/netflix-original.service";
 
 export const HomePage = () => {
@@ -38,18 +38,16 @@ export const HomePage = () => {
         setNetflixOriginals(netflixOriginals);
     }
     return (
-        <Container maxW={"container.lg"}>
+        <Container maxW={"container.xl"}>
             <Box>
-                <MovieList movies={popularMovies} title={"Most popular movies"}
-                           isMovie={false} />
+                <Text>Recommended</Text>
+
             </Box>
-            <Box>
-                <MovieList movies={topRatedMovies}  title={"Most Rated Movies"}
-                           isMovie={false}/>
-            </Box>
-            <Box>
-                <MovieList isMovie={false} movies={upComingMovies}  title={"Up-coming Movies"}/>
-            </Box>
+            <MovieList movies={popularMovies} title={"Most popular movies"}
+                       isMovie={false}/>
+            <MovieList movies={topRatedMovies} title={"Most Rated Movies"}
+                       isMovie={false}/>
+            <MovieList isMovie={false} movies={upComingMovies} title={"Up-coming Movies"}/>
 
         </Container>
     )
