@@ -1,4 +1,4 @@
-import {Movie, Response, TV} from "../models/Movie";
+import { Movie, Response, TV} from "../models/Movie";
 import {netflixOriginals} from "./endpoints.service";
 
 export async function getNetflixOriginal(page = 1): Promise<Response<TV[]>> {
@@ -6,6 +6,3 @@ export async function getNetflixOriginal(page = 1): Promise<Response<TV[]>> {
     return await response.json();
 }
 
-export function getRandomNumber(length: number): number {
-    return Math.floor(Math.random() * length - 1);
-}
