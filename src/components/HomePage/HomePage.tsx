@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import {Movie, TV} from "../../models/Movie";
 import {getPopularMovies, getTopRatedMovies, getUpComingMovies} from "../../services/movie.service";
 import {MovieList} from "../MovieList/MovieList";
-import {Box, Container, Text} from "@chakra-ui/react";
+import {Box, Button, ButtonGroup, Container, Flex, Heading, Spacer, Text, Wrap} from "@chakra-ui/react";
 import {getNetflixOriginal} from "../../services/netflix-original.service";
 
 export const HomePage = () => {
@@ -39,15 +39,23 @@ export const HomePage = () => {
     }
     return (
         <Container maxW={"container.xl"}>
-            <Box>
-                <Text>Recommended</Text>
-
-            </Box>
+            <Flex marginBottom={"20px"} gap={5} marginTop={"20px"} alignItems={"center"}>
+                <Heading size={"lg"}
+                         textColor={"#F5F5F4"}>
+                    Recommend
+                </Heading>
+                <ButtonGroup gap={1}>
+                    <Button colorScheme={"teal"} variant={"solid"}>Movies</Button>
+                    <Button colorScheme={"teal"} variant={"solid"}>TV Series</Button>
+                    <Button colorScheme={"teal"} variant={"solid"}>Trending</Button>
+                </ButtonGroup>
+            </Flex>
             <MovieList movies={popularMovies} title={"Most popular movies"}
                        isMovie={false}/>
             <MovieList movies={topRatedMovies} title={"Most Rated Movies"}
                        isMovie={false}/>
-            <MovieList isMovie={false} movies={upComingMovies} title={"Up-coming Movies"}/>
+            <MovieList isMovie={false} movies={upComingMovies}
+                       title={"Up-coming Movies"}/>
 
         </Container>
     )
