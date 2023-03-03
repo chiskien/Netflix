@@ -24,18 +24,18 @@ export const Banner: React.FC = () => {
         title: "",
         vote_count: 0
     });
+    useEffect(() => {
+        loadNetflixOriginal();
+    }, [])
 
     const loadNetflixOriginal = async () => {
         const response = await getNetflixOriginal();
         const netflixOriginalSeries: TV[] = response.results;
         const randomHeroSectionSeries: TV =
-            await netflixOriginalSeries[getRandomNumber(netflixOriginalSeries.length)];
+            netflixOriginalSeries[10];
         console.log(randomHeroSectionSeries);
         setHeroSectionSeries(randomHeroSectionSeries);
     }
-    useEffect(() => {
-        loadNetflixOriginal();
-    }, [])
 
     const options = {
         type: 'loop',
