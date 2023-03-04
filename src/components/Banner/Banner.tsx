@@ -32,7 +32,7 @@ export const Banner: React.FC = () => {
         const response = await getNetflixOriginal();
         const netflixOriginalSeries: TV[] = response.results;
         const randomHeroSectionSeries: TV =
-            netflixOriginalSeries[10];
+            netflixOriginalSeries[getRandomNumber(netflixOriginalSeries.length)];
         console.log(randomHeroSectionSeries);
         setHeroSectionSeries(randomHeroSectionSeries);
     }

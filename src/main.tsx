@@ -7,19 +7,27 @@ import {Login} from "./components/Auth/Login";
 import {Register} from "./components/Auth/Register";
 import {ErrorPage} from "./components/Error/ErrorPage";
 import {RouteLayout} from "./components/RouteLayout";
+import App from './App';
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <RouteLayout/>,
-        errorElement: <ErrorPage/>
-    },
-    {
-        path: "/login", element: <Login/>, errorElement: <ErrorPage/>
+        errorElement: <ErrorPage/>,
+        children: [
+            {
+                path: "/",
+                element: <App/>
+            },
+            {
+                path: "/login", element: <Login/>, errorElement: <ErrorPage/>
 
-    }, {
-        path: "/register", element: <Register/>, errorElement: <ErrorPage/>
-    }
+            }, {
+                path: "/register", element: <Register/>, errorElement: <ErrorPage/>
+            }
+        ]
+    },
+
 ])
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
