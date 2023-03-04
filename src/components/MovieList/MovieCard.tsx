@@ -1,6 +1,7 @@
 import React from "react";
 import {Movie} from "../../models/Movie";
-import {Box, Card, CardBody, Heading, Image, Text} from "@chakra-ui/react";
+import {Box, Card, CardBody, Image, Link} from "@chakra-ui/react";
+import {NavLink as ReactLink} from "react-router-dom";
 import {truncate} from "../../helpers/helper";
 import "./MovieCard.scss"
 
@@ -11,7 +12,10 @@ export const MovieCard: React.FC<{ movie: Movie }> = ({movie}) => {
             <CardBody padding={0}>
                 <Image src={`${base_url}/${movie?.poster_path}`} className={"row__poster"}/>
                 <Box padding={"15px"} className="movie__information">
-                    <Heading fontSize={"1rem"} color={"teal.50"}>{truncate(movie.title, 25)}</Heading>
+                    <Link style={{textDecoration: "none"}}
+                          as={ReactLink} fontSize={"1rem"} color={"teal.50"} to={"/login"}>
+                        {truncate(movie.title, 25)}
+                    </Link>
                     {/*<Text>*/}
                     {/*    {truncate(movie.overview, 150)}*/}
                     {/*</Text>*/}

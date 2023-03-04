@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from "react";
 import "./Banner.scss";
 import {getNetflixOriginal} from "../../services/netflix-original.service";
-import {Box, Button, Heading, Text} from "@chakra-ui/react";
+import {Box, Button, ButtonGroup, Heading, Image, Text} from "@chakra-ui/react";
 import {getRandomNumber, truncate} from "../../helpers/helper";
 import {TV} from "../../models/Movie";
+import film from "../../assets/icons/film.svg";
 
 export const Banner: React.FC = () => {
     const [heroSectionSeries, setHeroSectionSeries] = useState<TV>({
@@ -48,15 +49,15 @@ export const Banner: React.FC = () => {
 
     return (
         <Box>
-            <Box className={"banner"} marginBottom={"40px"} style={{
-                backgroundSize: "cover",
-                backgroundImage: `url("https://image.tmdb.org/t/p/original/${heroSectionSeries?.backdrop_path}")`,
-                backgroundPosition: "center top",
-                backgroundRepeat: "no-repeat",
-                position: "relative",
-                objectFit: "contain",
-                minHeight: "650px"
-            }}>
+            <Box className={"banner"} marginBottom={"40px"}
+                 bgImage={`url("https://image.tmdb.org/t/p/original/${heroSectionSeries?.backdrop_path}")`}
+                 bgPosition={"center top"}
+                 bgRepeat={"no-repeat"}
+                 objectFit={"contain"}
+                 bgSize={"cover"}
+                 position={"relative"}
+                 minHeight={"650px"}
+                 style={{}}>
                 <Box className={"banner__contents"}>
                     <Box>
                         <Heading as={"h1"} fontSize={"3rem"} textColor={"teal.50"}
@@ -65,16 +66,20 @@ export const Banner: React.FC = () => {
                         </Heading>
                     </Box>
                     <Box>
-                        <Button colorScheme={"teal"} bgColor={"teal.400"} variant={"solid"}
-                                borderRadius={"18px"} width={"150px"}
-                                className={"banner__button"}>
-                            Watch
-                        </Button>
-                        <Button colorScheme={"teal"} bgColor={"teal.400"} variant={"solid"}
-                                borderRadius={"18px"} width={"150px"}
-                                className={"banner__button"}>
-                            Add to list
-                        </Button>
+                        <ButtonGroup>
+                            <Button colorScheme={"teal"} bgColor={"teal.400"} variant={"solid"}
+                                    borderRadius={"5px"} width={"130px"}
+                                    className={"banner__button"}>
+                                {/*<Image src={film} minHeight="10px"/>*/}
+                                Watch
+                            </Button>
+                            <Button colorScheme={"teal"} bgColor={"teal.400"} variant={"solid"}
+                                    borderRadius={"5px"} width={"130px"}
+                                    className={"banner__button"}>
+                                Add to list
+                            </Button>
+                        </ButtonGroup>
+
                     </Box>
                     <Box>
                         <Text fontSize={"1.3rem"} textColor={"teal.50"} className={"banner__description"}>
