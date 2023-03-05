@@ -1,42 +1,52 @@
+.banner {
+  &__overlay {
+    background-image: linear-gradient(
+                    to left,
+                    transparent,
+                    rgba(32, 32, 32, 0.8) 0,
+                    rgba(0, 0, 0, 0) 50%,
+                    rgba(32, 32, 32, 0.8) 100%
+    );
+  }
 
-.banner__contents {
-  margin-left: 30px;
-  padding-top: 250px;
-  width: 45rem;
-  color: #F5F5F4;
-}
+  &__contents {
+    margin-left: 30px;
+    padding-top: 250px;
+    width: 45rem;
+    color: #F5F5F4;
+  }
 
-.banner__title {
-  padding-bottom: 1.5rem;
-}
+  &__title {
+    margin-bottom: 1.5rem;
+  }
 
-.banner__information {
-  width: 45rem;
-  line-height: 1.3;
-  padding-bottom: 1.5rem;
-  max-width: 600px;
-  font-weight: 700;
-  height: 80px;
-}
+  &__information {
+    width: 45rem;
+    line-height: 1.3;
+    padding-bottom: 1.5rem;
+    max-width: 600px;
+    font-weight: 700;
+    height: 80px;
+  }
 
-.banner__description {
-  width: 45rem;
-  line-height: 1.3;
-  padding-top: 2rem;
-  height: 70px;
-  max-width: 600px;
-  font-weight: 700;
-}
+  &__description {
+    width: 45rem;
+    line-height: 1.3;
+    padding-top: 2rem;
+    height: 70px;
+    max-width: 600px;
+    font-weight: 700;
+  }
 
-.banner__fadeBottom {
-  height: 15rem;
-  background-image: linear-gradient(180deg, transparent, rgba(37, 37, 37, 0.61), #202020);
-}
+  &__fadeBottom {
+    height: 33%;
+    background-image: linear-gradient(180deg, transparent, rgba(37, 37, 37, 0.61), #202020);
+  }
 
-
-.banner__button {
-  cursor: pointer;
-  outline: none;
-  border: none;
-  margin-right: 2rem;
+  &__button {
+    cursor: pointer;
+    outline: none;
+    border: none;
+    margin-right: 2rem;
+  }
 }
