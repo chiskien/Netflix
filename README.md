@@ -1,19 +1,7 @@
-# Netflix Clone
 
-## Front-end
+# Creme Dela Creme
 
-### React, Vite, TypeScript, Redux
+A netflix clone, streaming website made by ChisKien
 
-### CharkaUI, Sass
+![Logo](https://res.cloudinary.com/dhihq4dym/image/upload/v1678005711/Untitled_d2z1ig.png)
 
-### Firebase
-
-## Back-end
-
-### Spring Boot 
-
-### Spring Data, Hibernate
-
-### MySQL, Redis, MongoDB
-
-### 
