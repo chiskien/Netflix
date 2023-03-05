@@ -8,12 +8,13 @@ import "./MovieCard.scss"
 export const MovieCard: React.FC<{ movie: Movie }> = ({movie}) => {
     const base_url: string = "https://image.tmdb.org/t/p/original"
     return (
-        <Card borderRadius={"lg"} background={"#202020"} marginBottom={"30px"} className={"movie__card"}>
+        <Card borderRadius={"lg"} background={"#202020"} marginBottom={"30px"}
+              className={"movie__card"}>
             <CardBody padding={0}>
                 <Image src={`${base_url}/${movie?.poster_path}`} className={"row__poster"}/>
                 <Box padding={"15px"} className="movie__information">
                     <Link style={{textDecoration: "none"}}
-                          as={ReactLink} fontSize={"1rem"} color={"teal.50"} to={"/login"}>
+                          as={ReactLink} fontSize={"1rem"} color={"teal.50"} to={"/movie/detail"}>
                         {truncate(movie.title, 25)}
                     </Link>
                     {/*<Text>*/}

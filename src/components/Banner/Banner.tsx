@@ -38,15 +38,6 @@ export const Banner: React.FC = () => {
         setHeroSectionSeries(randomHeroSectionSeries);
     }
 
-    const options = {
-        type: 'loop',
-        gap: '1rem',
-        autoplay: true,
-        pauseOnHover: false,
-        resetProgress: false,
-        height: '15rem',
-    };
-
     return (
         <Box>
             <Box className={"banner"} marginBottom={"40px"}
@@ -60,10 +51,9 @@ export const Banner: React.FC = () => {
                  style={{}}>
                 <Box height={"100%"} width={"100%"} position={"absolute"}
                      className={"banner__overlay"}>
-
                     <Box className={"banner__contents"}>
                         <Box>
-                            <Heading as={"h1"} fontSize={"3rem"} textColor={"teal.50"}
+                            <Heading as={"h1"} fontSize={"3.3rem"} textColor={"teal.50"}
                                      className="banner__title">
                                 {heroSectionSeries?.name}
                             </Heading>
