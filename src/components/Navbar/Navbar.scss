@@ -1,4 +1,6 @@
-$teal: #38B4AC;
+
+@use "../src/assets/styles/button";
+
 .nav {
   position: fixed;
   display: flex;
@@ -12,6 +14,10 @@ $teal: #38B4AC;
 
   &__black {
     background: #202020;
+  }
+
+  &__transparent {
+
   }
 
   &__content {
@@ -43,27 +49,5 @@ $teal: #38B4AC;
   }
 }
 
-.btn {
-  display: inline-flex;
-  appearance: none;
-  position: relative;
-  justify-content: center;
-  align-items: center;
-  white-space: nowrap;
-  vertical-align: center;
-  outline: 2px solid transparent;
-  line-height: 1.2;
-  min-width: 2.5rem;
-  min-height: 2.5rem;
-  font-size: 1rem;
-  width: 100px;
-  border-radius: 5px;
-  z-index: 200;
 
-  &:hover {
-    $teal: darken($teal, 20%);
-    background-color: $teal;
-    text-decoration: none !important;
-  }
-}
 
