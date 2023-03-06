@@ -12,4 +12,5 @@ A netflix clone, streaming website made by [ChisKien](https://www.github.com/oct
 - [TypeScript](https://www.typescriptlang.org/)
 - [Redux](https://redux.js.org/)
 - [Charka UI](https://chakra-ui.com/)
+- [React-Query](https://react-query-v3.tanstack.com/)
 
