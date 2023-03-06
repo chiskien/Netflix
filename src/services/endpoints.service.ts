@@ -1,6 +1,6 @@
-const tmdbApi: string = "https://api.themoviedb.org/3";
+export const tmdbApi: string = "https://api.themoviedb.org/3";
 
-const key: string = "2a14a0070cbbea8bb85612746901228a";
+export const key: string = "2a14a0070cbbea8bb85612746901228a";
 
 
 export const popularMovies = `${tmdbApi}/movie/popular?api_key=${key}`;//return a array of movies

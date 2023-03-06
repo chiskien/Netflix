@@ -63,3 +63,10 @@ export interface TV extends Movie {
     name: string;
 }
 
+export interface Network {
+    headquarters: string;
+    homepage: string;
+    id: number;
+    logo_path: string;
+    name: string;
+}
