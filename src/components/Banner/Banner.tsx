@@ -62,14 +62,14 @@ export const Banner: React.FC = () => {
                             <ButtonGroup>
                                 <Button colorScheme={"teal"} variant={"outline"}
                                         color={"teal.400"}
-                                        borderRadius={"5px"} width={"130px"}
+                                        width={"130px"}
                                         className={"banner__button"}>
                                     {/*<Image src={film} minHeight="10px"/>*/}
                                     Watch
                                 </Button>
                                 <Button colorScheme={"teal"} variant={"outline"}
                                         color={"teal.400"}
-                                        borderRadius={"5px"} width={"130px"}
+                                        width={"130px"}
                                         className={"banner__button"}>
                                     Add to list
                                 </Button>

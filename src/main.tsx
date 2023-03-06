@@ -8,7 +8,7 @@ import {Register} from "./components/Auth/Register";
 import {ErrorPage} from "./components/Error/ErrorPage";
 import {RouteLayout} from "./components/RouteLayout";
 import App from './App';
-import {Dummies} from "./dummies/Dummies";
+import {Dummies} from "./components/dummies/Dummies";
 
 const router = createBrowserRouter([
     {
@@ -17,18 +17,20 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage/>,
         children: [
             {
-                path: "/",
-                element: <App/>
+                path: "/", element: <App/>
             },
             {
                 path: "/login", element: <Login isLogin/>, errorElement: <ErrorPage/>
 
-            }, {
+            },
+            {
                 path: "/register", element: <Register/>, errorElement: <ErrorPage/>
+            },
+            {
+                path: "/dummies", element: <Dummies/>, errorElement: <ErrorPage/>
             }
         ]
     },
-    {path: "/dummies", element: <Dummies/>}
 
 ])
 
