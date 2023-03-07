@@ -2,9 +2,23 @@
   width: 100%;
   min-height: 100vh;
   position: relative;
-  background-image: linear-gradient(
-                  to top,
-                  rgba(32, 32, 32, 0.8) 0,
-                  rgba(0, 0, 0, 0) 60%,
-                  rgba(32, 32, 32, 0.8) 100%)
+  //background-image: linear-gradient(
+  //                to top,
+  //                rgba(32, 32, 32, 0.8) 0,
+  //                rgba(0, 0, 0, 0) 60%,
+  //                rgba(32, 32, 32, 0.8) 100%)
+  background: #202020; /* fallback for old browsers */
+  //background: -webkit-linear-gradient(to left, #434343, #202020); /* Chrome 10-25, Safari 5.1-6 */
+  //background: linear-gradient(to left, #434343, #202020); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+}
+
+.form__wrapper {
+  background: rgb(236, 245, 245);
+  box-shadow: 4px 7px 22px 11px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(2px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
 }
