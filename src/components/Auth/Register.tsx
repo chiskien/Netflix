@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useRef} from "react";
 import "./Login.scss";
 import {
     Box,
@@ -14,14 +14,22 @@ import {
     Stack
 } from "@chakra-ui/react";
 import {Link as ReactLink} from "react-router-dom";
+import {auth} from "../../firebaseConfig";
+import {createUserWithEmailAndPassword} from "firebase/auth";
 
 export const Register: React.FC = () => {
-    const [email, setEmail] = useState<string>("");
-    const [password, setPass] = useState<string>("");
-    const [confirmedPass, setConfirmedPass] = useState<string>("");
-    const handleButtonSubmit = (e: React.FormEvent) => {
+    const emailRef = useRef<HTMLInputElement>(null!);
+    const passRef = useRef<HTMLInputElement>(null!);
+    const handleButtonSubmit = (e: React.FormEvent): void => {
         e.preventDefault();
-        console.log({email, password});
+        createUserWithEmailAndPassword(
+            auth,
+            emailRef.current.value,
+            passRef.current.value
+        ).then(account => console.log(account))
+            .catch((err: Error) => {
+                alert(err.message)
+            })
     }
     return (
         <Container
@@ -58,10 +66,12 @@ export const Register: React.FC = () => {
                         <Center as={"h2"} fontSize={"2xl"} mb={8} fontFamily={"Sniglet"} color={"black"}>SIGN
                             UP</Center>
 
-                        <form onSubmit={handleButtonSubmit}>
+                        <form>
                             <FormControl isRequired>
                                 <FormLabel>Your Email</FormLabel>
-                                <Input type={"email"} placeholder={"example@email.com"}/>
+                                <Input
+                                    ref={emailRef}
+                                    type={"email"} placeholder={"example@email.com"}/>
                             </FormControl>
                             <FormControl isRequired mt={4}>
                                 <FormLabel>Password</FormLabel>
@@ -71,11 +81,14 @@ export const Register: React.FC = () => {
                             <FormControl isRequired mt={4} mb={8}>
                                 <FormLabel>Confirm Password</FormLabel>
                                 <Input type={"password"}
+                                       ref={passRef}
                                 />
                             </FormControl>
                             <Box marginY={"20px"}>
                                 <Button width={"100%"} boxShadow={"3px 8px 14px 3px rgba(0,0,0,0.1);"}
-                                        colorScheme={"teal"} type={"submit"}>
+                                        colorScheme={"teal"} type={"submit"}
+                                        onClick={handleButtonSubmit}
+                                >
                                     Sign Up
                                 </Button>
                             </Box>
