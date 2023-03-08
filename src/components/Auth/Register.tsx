@@ -11,26 +11,51 @@ import {
     Image,
     Input,
     Link,
-    Stack
+    Stack, useToast
 } from "@chakra-ui/react";
 import {Link as ReactLink} from "react-router-dom";
 import {auth} from "../../firebaseConfig";
 import {createUserWithEmailAndPassword} from "firebase/auth";
 
 export const Register: React.FC = () => {
+
+    //useRef Hook for getting value from input
     const emailRef = useRef<HTMLInputElement>(null!);
     const passRef = useRef<HTMLInputElement>(null!);
+
+    //Charka UI: Toast
+    const toast = useToast()
+    //Submit Action
     const handleButtonSubmit = (e: React.FormEvent): void => {
         e.preventDefault();
+
         createUserWithEmailAndPassword(
             auth,
             emailRef.current.value,
             passRef.current.value
-        ).then(account => console.log(account))
-            .catch((err: Error) => {
-                alert(err.message)
+        ).then((account) => {
+            console.log(account);
+            toast({
+                title: "Account Created.",
+                description: "We have created your account for you",
+                isClosable: true,
+                position: "bottom",
+                duration: 2000,
+                status: "success",
             })
+        }).catch((err: Error) => {
+            toast({
+                title: err.name,
+                description: err.message,
+                isClosable: true,
+                position: "bottom",
+                duration: 4000,
+                status: "error"
+            })
+            console.error(err.message);
+        })
     }
+
     return (
         <Container
             maxH={"100vh"} maxW={"100vw"} padding={0} margin={0}
@@ -51,16 +76,14 @@ export const Register: React.FC = () => {
                         </Link>
                     </Box>
                     <Box paddingRight={"20px"}>
-
                         <Link to={"/login"} as={ReactLink} textDecoration={"none"}
                               className={"btn"} bgColor={"teal.400"}
                               color={"teal.50"}>Sign In</Link>)
-
                     </Box>
                 </Stack>
                 <Box top={"50%"} className={"form__wrapper"}
                      width={"450px"}
-                     height={"500px"}
+                     minHeight={"550px"}
                      transform={"translate(-50%, -50%)"} left={"50%"} position={"absolute"}>
                     <Box padding={"40px"}>
                         <Center as={"h2"} fontSize={"2xl"} mb={8} fontFamily={"Sniglet"} color={"black"}>SIGN
@@ -87,8 +110,7 @@ export const Register: React.FC = () => {
                             <Box marginY={"20px"}>
                                 <Button width={"100%"} boxShadow={"3px 8px 14px 3px rgba(0,0,0,0.1);"}
                                         colorScheme={"teal"} type={"submit"}
-                                        onClick={handleButtonSubmit}
-                                >
+                                        onClick={handleButtonSubmit}>
                                     Sign Up
                                 </Button>
                             </Box>
@@ -104,8 +126,6 @@ export const Register: React.FC = () => {
                             </ButtonGroup>
                         </form>
                     </Box>
-
-
                 </Box>
             </Box>
         </Container>

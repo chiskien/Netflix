@@ -1,42 +1,15 @@
-import React, {useEffect, useState} from "react";
-import {Movie, TV} from "../../models/Movie";
-import {getPopularMovies, getTopRatedMovies, getUpComingMovies} from "../../services/movie.service";
+import React from "react";
 import {MovieList} from "../MovieList/MovieList";
-import {Box, Button, ButtonGroup, Container, Flex, Heading, Spacer, Text, Wrap} from "@chakra-ui/react";
-import {getNetflixOriginal} from "../../services/netflix-original.service";
+import {Button, ButtonGroup, Container, Flex, Heading} from "@chakra-ui/react";
+import {
+    netflixOriginalsUrl,
+    hboOriginalsUrl,
+    popularMoviesUrl,
+    topRatedMoviesUrl
+} from "../../services/endpoints.service";
 
 export const HomePage = () => {
-    const [popularMovies, setPopularMovies] = useState<Movie[]>([]);
-    const [topRatedMovies, setTopRatedMovies] = useState<Movie[]>([]);
-    const [upComingMovies, setUpComingMovies] = useState<Movie[]>([]);
-    const [netflixOriginals, setNetflixOriginals] = useState<TV[]>([]);
 
-    useEffect(() => {
-        loadPopularMovies();
-        loadTopRatedMovie();
-        loadUpComingMovie();
-        loadNetflixOriginal();
-    }, [])
-    const loadPopularMovies = async () => {
-        const response = await getPopularMovies();
-        const popularMovies: Movie[] = response.results;
-        setPopularMovies(popularMovies);
-    }
-    const loadTopRatedMovie = async () => {
-        const response = await getTopRatedMovies();
-        const topRatedMovies: Movie[] = response.results;
-        setTopRatedMovies(topRatedMovies);
-    }
-    const loadUpComingMovie = async () => {
-        const response = await getUpComingMovies();
-        const upComingMovies: Movie[] = response.results;
-        setUpComingMovies(upComingMovies);
-    }
-    const loadNetflixOriginal = async () => {
-        const response = await getNetflixOriginal();
-        const netflixOriginals: TV[] = response.results;
-        setNetflixOriginals(netflixOriginals);
-    }
     return (
         <Container maxW={"container.xl"}>
             <Flex marginBottom={"20px"} gap={5} marginTop={"20px"} alignItems={"center"}>
@@ -50,12 +23,11 @@ export const HomePage = () => {
                     <Button colorScheme={"teal"} variant={"solid"}>Trending</Button>
                 </ButtonGroup>
             </Flex>
-            <MovieList movies={popularMovies} title={"Most popular movies"}
-                       isMovie={false}/>
-            <MovieList movies={topRatedMovies} title={"Most Rated Movies"}
-                       isMovie={false}/>
-            <MovieList isMovie={false} movies={upComingMovies}
-                       title={"Up-coming Movies"}/>
+            <MovieList title={"Most popular movies"} apiUrl={`${popularMoviesUrl}`} page={1}/>
+            <MovieList title={"HBO Originals"} apiUrl={`${hboOriginalsUrl}`} page={1}/>
+            <MovieList title={"Netflix Originals"} page={1} apiUrl={`${netflixOriginalsUrl}`}/>
+            <MovieList title={"Most Rated Movies"} page={1} apiUrl={`${topRatedMoviesUrl}`}/>
+
 
         </Container>
     )

@@ -1,5 +1,5 @@
 export function getRandomNumber(length: number): number {
-    return Math.floor(Math.random() * length - 1);
+    return Math.floor(Math.random() * length);
 }
 
 export function truncate(str: string, width: number) {

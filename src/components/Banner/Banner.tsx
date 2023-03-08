@@ -1,12 +1,21 @@
 import React, {useEffect, useState} from "react";
 import "./Banner.scss";
-import {getNetflixOriginal} from "../../services/netflix-original.service";
-import {Box, Button, ButtonGroup, Heading, Image, Text} from "@chakra-ui/react";
+import {getHboOriginals, getNetflixOriginal} from "../../services/netflix-original.service";
+import {Box, Button, ButtonGroup, Heading, Text} from "@chakra-ui/react";
 import {getRandomNumber, truncate} from "../../helpers/helper";
 import {TV} from "../../models/Movie";
-import film from "../../assets/icons/film.svg";
+import {Simulate} from "react-dom/test-utils";
+import load = Simulate.load;
 
 export const Banner: React.FC = () => {
+    const loadOriginals = async () => {
+        const response = await getHboOriginals();
+        const netflixOriginalSeries: TV[] = response.results;
+        const randomHeroSectionSeries: TV =
+            netflixOriginalSeries[getRandomNumber(netflixOriginalSeries.length)];
+        console.log(randomHeroSectionSeries);
+        setHeroSectionSeries(randomHeroSectionSeries);
+    }
     const [heroSectionSeries, setHeroSectionSeries] = useState<TV>({
         adult: false,
         backdrop_path: "",
@@ -26,17 +35,8 @@ export const Banner: React.FC = () => {
         vote_count: 0
     });
     useEffect(() => {
-        loadNetflixOriginal();
+        loadOriginals();
     }, [])
-
-    const loadNetflixOriginal = async () => {
-        const response = await getNetflixOriginal();
-        const netflixOriginalSeries: TV[] = response.results;
-        const randomHeroSectionSeries: TV =
-            netflixOriginalSeries[getRandomNumber(netflixOriginalSeries.length)];
-        console.log(randomHeroSectionSeries);
-        setHeroSectionSeries(randomHeroSectionSeries);
-    }
 
     return (
         <Box>
