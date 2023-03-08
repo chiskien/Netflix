@@ -17,7 +17,7 @@ import {
 } from "@chakra-ui/react";
 import {Link as ReactLink} from "react-router-dom";
 
-export const Login: React.FC<{ isLogin: boolean }> = ({isLogin = false}) => {
+export const Login: React.FC = () => {
     return (
         <Container
             maxH={"100vh"} maxW={"100vw"} padding={0} margin={0}
@@ -31,27 +31,25 @@ export const Login: React.FC<{ isLogin: boolean }> = ({isLogin = false}) => {
                        justifyContent={"space-between"}
                        width={"100%"} minHeight={"65px"}>
                     <Box paddingLeft={"20px"}>
-                        <Image objectFit={"contain"}
-                               width={"100px"}
-                               src={"https://image.tmdb.org/t/p/original/wwemzKWzjKYJFfCeiB57q3r4Bcm.svg"}></Image>
+                        <Link as={ReactLink} to={"/"}>
+                            <Image objectFit={"contain"}
+                                   width={"100px"}
+                                   src={"https://image.tmdb.org/t/p/original/wwemzKWzjKYJFfCeiB57q3r4Bcm.svg"}></Image>
+                        </Link>
                     </Box>
                     <Box paddingRight={"20px"}>
-                        {
-                            isLogin ? (
-                                    <Link to={"/login"} as={ReactLink} textDecoration={"none"}
-                                          className={"btn"} bgColor={"teal.400"}
-                                          color={"teal.50"}>Login</Link>)
-                                : (
-                                    <Link to={"/register"} as={ReactLink} textDecoration={"none"}
-                                          className={"btn"} bgColor={"teal.400"}
-                                          color={"teal.50"}>Sign Up</Link>)
-                        }
+
+                        <Link to={"/register"} as={ReactLink} textDecoration={"none"}
+                              className={"btn"} bgColor={"teal.400"}
+                              color={"teal.50"}>Sign Up</Link>
+
                     </Box>
                 </Stack>
                 <Box top={"50%"} className={"form__wrapper"}
                      width={"450px"}
                      height={"500px"}
                      transform={"translate(-50%, -50%)"} left={"50%"} position={"absolute"}>
+
                     <Box padding={"40px"}>
                         <Center as={"h2"} fontSize={"2xl"} mb={8} fontFamily={"Sniglet"} color={"black"}>SIGN
                             IN</Center>
@@ -70,18 +68,22 @@ export const Login: React.FC<{ isLogin: boolean }> = ({isLogin = false}) => {
                                 <Link color={"teal.600"} as={ReactLink} to={"/forgotpass"}>Forgot Password</Link>
                             </Stack>
                             <Box marginY={"20px"}>
-                                <Button width={"100%"} colorScheme={"teal"}>Login</Button>
+                                <Button width={"100%"} boxShadow={"3px 8px 14px 3px rgba(0,0,0,0.1);"}
+                                        colorScheme={"teal"}>Login</Button>
                             </Box>
                             <ButtonGroup gap={4} width={"100%"}>
-                                <Button width={"50%"} colorScheme={"facebook"}>
+                                <Button width={"50%"} colorScheme={"facebook"}
+                                        boxShadow={"6px 10px 9px 0px rgba(0,0,0,0.1); "}>
                                     FaceBook
                                 </Button>
-                                <Button width={"50%"} colorScheme={"twitter"}>
+                                <Button width={"50%"} colorScheme={"twitter"}
+                                        boxShadow={"6px 10px 9px 0px rgba(0,0,0,0.1); "}>
                                     Twitter
                                 </Button>
                             </ButtonGroup>
                         </form>
                     </Box>
+
 
                 </Box>
             </Box>

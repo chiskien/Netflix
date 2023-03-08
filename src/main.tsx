@@ -4,11 +4,11 @@ import {ChakraProvider} from '@chakra-ui/react'
 import './index.css'
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import {Login} from "./components/Auth/Login";
-import {Register} from "./components/Auth/Register";
 import {ErrorPage} from "./components/Error/ErrorPage";
 import {RouteLayout} from "./components/RouteLayout";
 import App from './App';
 import {Dummies} from "./components/dummies/Dummies";
+import {Register} from "./components/Auth/Register";
 
 const router = createBrowserRouter([
     {
@@ -20,7 +20,7 @@ const router = createBrowserRouter([
                 path: "/", element: <App/>
             },
             {
-                path: "/login", element: <Login isLogin/>, errorElement: <ErrorPage/>
+                path: "/login", element: <Login/>, errorElement: <ErrorPage/>
 
             },
             {
