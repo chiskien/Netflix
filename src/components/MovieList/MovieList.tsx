@@ -1,8 +1,7 @@
-import {Movie, TV} from "../../models/Movie";
+import {Movie, Response, TV} from "../../models/Movie";
 import React, {useCallback, useEffect, useState} from "react";
 import {MovieCard} from "./MovieCard";
-import {Box, Heading, SimpleGrid, Toast, useToast} from "@chakra-ui/react";
-import {Exception} from "sass";
+import {Box, Heading, SimpleGrid} from "@chakra-ui/react";
 import {SeriesCard} from "./SeriesCard";
 
 type MovieProps = {
@@ -11,12 +10,7 @@ type MovieProps = {
     page: number | null;
     isMovie: boolean;
 }
-type IResponse<T> = {
-    page: number;
-    results: T;
-    total_results: number;
-    total_page: number;
-}
+
 export const MovieList: React.FC<MovieProps> = ({apiUrl, title, isMovie = true, page = 1}) => {
     const [movies, setMovies] = useState<Movie[]>([]);
     const [series, setSeries] = useState<TV[]>([]);
@@ -32,13 +26,14 @@ export const MovieList: React.FC<MovieProps> = ({apiUrl, title, isMovie = true, 
             if (!response.ok) {
                 throw new Error(`${response.statusText}`)
             }
-            const data: IResponse<Movie[]> = await response.json();
+            const data: Response<Movie[]> = await response.json();
             setMovies(data.results);
         } catch (error: any) {
             setErrors(error.message)
         }
         setIsLoading(false);
     }, []);
+
 
     const getSeries = useCallback(async (): Promise<void> => {
         setIsLoading(true);
@@ -48,7 +43,7 @@ export const MovieList: React.FC<MovieProps> = ({apiUrl, title, isMovie = true, 
             if (!response.ok) {
                 throw new Error(`${response.statusText}`)
             }
-            const data: IResponse<TV[]> = await response.json();
+            const data: Response<TV[]> = await response.json();
             setSeries(data.results);
         } catch (error: any) {
             setErrors(error.message)
@@ -65,10 +60,10 @@ export const MovieList: React.FC<MovieProps> = ({apiUrl, title, isMovie = true, 
             getSeries().then(r => console.log(r));
         }, [getSeries]);
     }
+    let content: JSX.Element;
 
     return (
         <Box marginTop={"20px"}>
-            {}
             <Heading as={"h2"} size={"xl"} marginBottom={"20px"} textColor={"#F5F5F4"}>
                 {title}
             </Heading>
@@ -77,7 +72,7 @@ export const MovieList: React.FC<MovieProps> = ({apiUrl, title, isMovie = true, 
                     isMovie ? movies.map((movie) => (
                             <MovieCard key={movie.id} movie={movie}/>))
                         : series.map((tv) => (
-                            <SeriesCard tv={tv}/>
+                            <SeriesCard key={tv.id} tv={tv}/>
                         ))
                 }
             </SimpleGrid>

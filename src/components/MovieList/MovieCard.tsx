@@ -11,7 +11,7 @@ export const MovieCard: React.FC<{ movie: Movie }> = ({movie}) => {
         <Card borderRadius={"lg"} background={"#202020"} marginBottom={"30px"}
               className={"movie__card"}>
             <CardBody padding={0}>
-                <Image src={`${image_base_url}/${movie?.poster_path}`} className={"row__poster"}/>
+                <Image src={`${image_base_url}/${movie.poster_path}`} className={"row__poster"}/>
                 <Box padding={"15px"} className="movie__information">
                     <Link style={{textDecoration: "none"}}
                           as={ReactLink} fontSize={"1rem"} color={"teal.50"} to={"/movie/detail"}>

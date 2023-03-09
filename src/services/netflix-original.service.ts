@@ -1,4 +1,4 @@
-import {Movie, Response, TV} from "../models/Movie";
+import {Response, TV} from "../models/Movie";
 import {hboOriginalsUrl, netflixOriginalsUrl} from "./endpoints.service";
 
 export async function getNetflixOriginal(page = 1): Promise<Response<TV[]>> {

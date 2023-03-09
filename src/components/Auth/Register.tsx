@@ -34,7 +34,6 @@ export const Register: React.FC = () => {
             emailRef.current.value,
             passRef.current.value
         ).then((account) => {
-            console.log(account);
             toast({
                 title: "Account Created.",
                 description: "We have created your account for you",

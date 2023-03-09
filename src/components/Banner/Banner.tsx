@@ -1,11 +1,9 @@
 import React, {useEffect, useState} from "react";
 import "./Banner.scss";
-import {getHboOriginals, getNetflixOriginal} from "../../services/netflix-original.service";
+import {getHboOriginals} from "../../services/netflix-original.service";
 import {Box, Button, ButtonGroup, Heading, Text} from "@chakra-ui/react";
 import {getRandomNumber, truncate} from "../../helpers/helper";
 import {TV} from "../../models/Movie";
-import {Simulate} from "react-dom/test-utils";
-import load = Simulate.load;
 
 export const Banner: React.FC = () => {
     const [heroSectionSeries, setHeroSectionSeries] = useState<TV>({
@@ -32,7 +30,6 @@ export const Banner: React.FC = () => {
         const netflixOriginalSeries: TV[] = response.results;
         const randomHeroSectionSeries: TV =
             netflixOriginalSeries[getRandomNumber(netflixOriginalSeries.length)];
-        console.log(randomHeroSectionSeries);
         setHeroSectionSeries(randomHeroSectionSeries);
     }
 
