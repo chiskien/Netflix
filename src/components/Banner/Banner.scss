@@ -46,13 +46,13 @@
   &__fadeLeft {
     position: absolute;
     left: 0;
-    width: 5%;
+    width: 3%;
     top: 0;
     height: 100%;
     background-image: linear-gradient(
                     270deg,
                     transparent,
-                    rgba(32, 32, 32, 0.5), #202020
+                    rgba(32, 32, 32, 0.3), #202020
     );
   }
 
