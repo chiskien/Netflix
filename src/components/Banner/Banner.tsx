@@ -64,7 +64,7 @@ export const Banner: React.FC = () => {
                         </Text>
                         <ButtonGroup>
                             <Button colorScheme={"teal"} variant={"solid"}
-                                    width={"170px"}
+                                    width={"160px"}
                                     borderRadius={"20px"}
                                     className={"banner__button"}>
                                 {/*<Image src={film} minHeight="10px"/>*/}
@@ -73,11 +73,16 @@ export const Banner: React.FC = () => {
                             <Button colorScheme={"teal"} variant={"outline"}
                                     color={"teal.200"}
                                     width={"120px"}
+                                    borderRadius={"20px"}
                                     className={"banner__button"}>
                                 Add to list
                             </Button>
                         </ButtonGroup>
                     </Stack>
+                    <div className="banner__fadeRight">
+                    </div>
+                    <div className="banner__fadeLeft">
+                    </div>
                     <div className="banner__fadeBottom">
                     </div>
                 </Box>
