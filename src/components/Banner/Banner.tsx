@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import "./Banner.scss";
-import {getHboOriginals} from "../../services/netflix-original.service";
-import {Box, Button, ButtonGroup, Heading, Text} from "@chakra-ui/react";
+import {getHboOriginals, getNetflixOriginal} from "../../services/netflix-original.service";
+import {Box, Button, ButtonGroup, Heading, Text, Stack} from "@chakra-ui/react";
 import {getRandomNumber, truncate} from "../../helpers/helper";
 import {TV} from "../../models/Movie";
 
@@ -26,7 +26,7 @@ export const Banner: React.FC = () => {
     });
     const [heroSectionTV, setHeroSectionTVs] = useState<TV[]>([]);
     const loadOriginals = async () => {
-        const response = await getHboOriginals();
+        const response = await getNetflixOriginal();
         const netflixOriginalSeries: TV[] = response.results;
         const randomHeroSectionSeries: TV =
             netflixOriginalSeries[getRandomNumber(netflixOriginalSeries.length)];
@@ -46,17 +46,20 @@ export const Banner: React.FC = () => {
                  objectFit={"contain"}
                  bgSize={"cover"}
                  position={"relative"}
-                 minHeight={"650px"}
+                 height={"700px"}
                  style={{}}>
                 <Box height={"100%"} width={"100%"} position={"absolute"}
                      className={"banner__overlay"}>
-                    <Box className={"banner__contents"}>
+                    <Stack justifyContent={"space-evenly"} direction={"column"} className={"banner__contents"}>
                         <Box>
-                            <Heading as={"h1"} fontSize={"3.3rem"} textColor={"teal.50"}
+                            <Heading as={"h1"} fontSize={"3rem"} textColor={"teal.50"}
                                      className="banner__title">
                                 {heroSectionSeries?.name}
                             </Heading>
                         </Box>
+                        <Stack className="banner__information">
+
+                        </Stack>
                         <Box>
                             <ButtonGroup>
                                 <Button colorScheme={"teal"} variant={"outline"}
@@ -80,7 +83,7 @@ export const Banner: React.FC = () => {
                                 {truncate(heroSectionSeries?.overview, 150)}
                             </Text>
                         </Box>
-                    </Box>
+                    </Stack>
                     <div className="banner__fadeBottom">
                     </div>
                 </Box>

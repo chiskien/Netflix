@@ -2,7 +2,7 @@ import {Movie, Response, TV} from "../../models/Movie";
 import React, {useCallback, useEffect, useState} from "react";
 import {MovieCard} from "./MovieCard";
 import {Box, Heading, SimpleGrid} from "@chakra-ui/react";
-import {SeriesCard} from "./SeriesCard";
+import {SeriesCard} from "../Series/SeriesCard";
 
 type MovieProps = {
     apiUrl: string;

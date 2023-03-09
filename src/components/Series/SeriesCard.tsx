@@ -3,7 +3,7 @@ import {TV} from "../../models/Movie";
 import {Box, Card, CardBody, Image, Link} from "@chakra-ui/react";
 import {NavLink as ReactLink} from "react-router-dom";
 import {truncate} from "../../helpers/helper";
-import "./MovieCard.scss"
+import "../Movie/MovieCard.scss"
 import {image_base_url} from "../../services/endpoints.service";
 
 export const SeriesCard: React.FC<{ tv: TV }> = ({tv}) => {

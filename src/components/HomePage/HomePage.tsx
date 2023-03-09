@@ -1,17 +1,19 @@
 import React from "react";
-import {MovieList} from "../MovieList/MovieList";
+import {MovieList} from "../Movie/MovieList";
 import {Button, ButtonGroup, Container, Flex, Heading} from "@chakra-ui/react";
 import {
-    netflixOriginalsUrl,
     hboOriginalsUrl,
+    netflixOriginalsUrl,
     popularMoviesUrl,
     topRatedMoviesUrl
 } from "../../services/endpoints.service";
+import {Disclaimer} from "./Disclaimer";
 
 export const HomePage = () => {
 
     return (
         <Container maxW={"container.xl"}>
+            <Disclaimer/>
             <Flex marginBottom={"20px"} gap={5} marginTop={"20px"} alignItems={"center"}>
                 <Heading size={"lg"}
                          textColor={"#F5F5F4"}>
