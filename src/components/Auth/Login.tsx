@@ -13,7 +13,8 @@ import {
     Input,
     Link,
     Spacer,
-    Stack
+    Stack,
+    Text
 } from "@chakra-ui/react";
 import {Link as ReactLink} from "react-router-dom";
 
@@ -81,6 +82,8 @@ export const Login: React.FC = () => {
                                     Twitter
                                 </Button>
                             </ButtonGroup>
+
+                            <Text>First Here ? <Link as={ReactLink} to={"/register"}>Sign Up</Link> </Text>
                         </form>
                     </Box>
 
