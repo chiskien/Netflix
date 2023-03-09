@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from "react";
 import "./Banner.scss";
-import {getHboOriginals, getNetflixOriginal} from "../../services/netflix-original.service";
-import {Box, Button, ButtonGroup, Heading, Text, Stack} from "@chakra-ui/react";
+import {Box, Button, ButtonGroup, Heading, Stack, Text} from "@chakra-ui/react";
 import {getRandomNumber, truncate} from "../../helpers/helper";
-import {TV} from "../../models/Movie";
+import {Movie, TV} from "../../models/Movie";
+import {getPopularMovies, getPopularSeries} from "../../services/movie.service";
+import {getNetflixOriginal} from "../../services/netflix-original.service";
 
 export const Banner: React.FC = () => {
     const [heroSectionSeries, setHeroSectionSeries] = useState<TV>({
@@ -12,7 +13,6 @@ export const Banner: React.FC = () => {
         genre_ids: [],
         genres: [],
         id: 0,
-        name: "",
         original_language: "",
         original_title: "",
         overview: "",
@@ -22,9 +22,10 @@ export const Banner: React.FC = () => {
         revenue: 0,
         tagline: "",
         title: "",
-        vote_count: 0
+        vote_count: 0,
+        name: ""
     });
-    const [heroSectionTV, setHeroSectionTVs] = useState<TV[]>([]);
+    const [heroSectionTV, setHeroSectionTVs] = useState<Movie[]>([]);
     const loadOriginals = async () => {
         const response = await getNetflixOriginal();
         const netflixOriginalSeries: TV[] = response.results;
@@ -53,13 +54,17 @@ export const Banner: React.FC = () => {
                     <div className={"banner__fadeTop"}></div>
                     <Stack spacing={"50px"} direction={"column"}
                            className={"banner__contents"}>
-                        <Heading as={"h1"} fontSize={"3rem"} textColor={"teal.50"}
+                        <Heading as={"h1"} fontSize={"3.2rem"} textColor={"teal.50"}
+                                 fontFamily={"Noto Sans"}
+                                 fontWeight={"600"}
                                  className="banner__title">
                             {heroSectionSeries?.name}
                         </Heading>
                         <Box className="banner__information">
                         </Box>
-                        <Text fontSize={"1.3em"} textColor={"teal.50"} className={"banner__description"}>
+                        <Text fontSize={"1.2rem"} textColor={"teal.50"}
+
+                              className={"banner__description"}>
                             {truncate(heroSectionSeries?.overview, 150)}
                         </Text>
                         <ButtonGroup>

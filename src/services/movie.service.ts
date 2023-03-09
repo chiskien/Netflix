@@ -1,8 +1,13 @@
-import {Movie, Response} from "../models/Movie";
-import {popularMoviesUrl, topRatedMoviesUrl, upComingMoviesUrl} from "./endpoints.service";
+import {Movie, Response, TV} from "../models/Movie";
+import {popularMoviesUrl, popularSeriesUrl, topRatedMoviesUrl, upComingMoviesUrl} from "./endpoints.service";
 
 export async function getPopularMovies(page = 1): Promise<Response<Movie[]>> {
     const response = await fetch(`${popularMoviesUrl}&page=${page}`);
+    return await response.json();
+}
+
+export async function getPopularSeries(page = 1): Promise<Response<TV[]>> {
+    const response = await fetch(`${popularSeriesUrl}&page=${page}`);
     return await response.json();
 }
 
