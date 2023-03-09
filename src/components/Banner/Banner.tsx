@@ -8,14 +8,6 @@ import {Simulate} from "react-dom/test-utils";
 import load = Simulate.load;
 
 export const Banner: React.FC = () => {
-    const loadOriginals = async () => {
-        const response = await getHboOriginals();
-        const netflixOriginalSeries: TV[] = response.results;
-        const randomHeroSectionSeries: TV =
-            netflixOriginalSeries[getRandomNumber(netflixOriginalSeries.length)];
-        console.log(randomHeroSectionSeries);
-        setHeroSectionSeries(randomHeroSectionSeries);
-    }
     const [heroSectionSeries, setHeroSectionSeries] = useState<TV>({
         adult: false,
         backdrop_path: "",
@@ -34,6 +26,16 @@ export const Banner: React.FC = () => {
         title: "",
         vote_count: 0
     });
+    const [heroSectionTV, setHeroSectionTVs] = useState<TV[]>([]);
+    const loadOriginals = async () => {
+        const response = await getHboOriginals();
+        const netflixOriginalSeries: TV[] = response.results;
+        const randomHeroSectionSeries: TV =
+            netflixOriginalSeries[getRandomNumber(netflixOriginalSeries.length)];
+        console.log(randomHeroSectionSeries);
+        setHeroSectionSeries(randomHeroSectionSeries);
+    }
+
     useEffect(() => {
         loadOriginals();
     }, [])

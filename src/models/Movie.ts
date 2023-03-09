@@ -42,12 +42,7 @@ export interface Movie {
 
 export type GenreId = Array<number>
 
-export interface Response<T> {
-    page: number;
-    results: T;
-    total_results: number;
-    total_page: number;
-}
+
 
 
 export interface Genre {

@@ -23,10 +23,10 @@ export const HomePage = () => {
                     <Button colorScheme={"teal"} variant={"solid"}>Trending</Button>
                 </ButtonGroup>
             </Flex>
-            <MovieList title={"Most popular movies"} apiUrl={`${popularMoviesUrl}`} page={1}/>
-            <MovieList title={"HBO Originals"} apiUrl={`${hboOriginalsUrl}`} page={1}/>
-            <MovieList title={"Netflix Originals"} page={1} apiUrl={`${netflixOriginalsUrl}`}/>
-            <MovieList title={"Most Rated Movies"} page={1} apiUrl={`${topRatedMoviesUrl}`}/>
+            <MovieList title={"Most popular movies"} apiUrl={`${popularMoviesUrl}`} page={1} isMovie={true}/>
+            <MovieList title={"HBO Originals"} apiUrl={`${hboOriginalsUrl}`} page={1} isMovie={false}/>
+            <MovieList title={"Netflix Originals"} page={1} apiUrl={`${netflixOriginalsUrl}`} isMovie={false}/>
+            <MovieList title={"Most Rated Movies"} page={1} apiUrl={`${topRatedMoviesUrl}`} isMovie={true}/>
 
 
         </Container>

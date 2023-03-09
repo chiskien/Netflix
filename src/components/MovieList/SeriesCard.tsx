@@ -1,5 +1,5 @@
 import React from "react";
-import {Movie, TV} from "../../models/Movie";
+import {TV} from "../../models/Movie";
 import {Box, Card, CardBody, Image, Link} from "@chakra-ui/react";
 import {NavLink as ReactLink} from "react-router-dom";
 import {truncate} from "../../helpers/helper";
@@ -15,7 +15,7 @@ export const SeriesCard: React.FC<{ tv: TV }> = ({tv}) => {
                 <Box padding={"15px"} className="movie__information">
                     <Link style={{textDecoration: "none"}}
                           as={ReactLink} fontSize={"1rem"} color={"teal.50"} to={"/tv/detail"}>
-                        {truncate(tv.name, 25)}
+                        {truncate(tv.name, 20)}
                     </Link>
                     {/*<Text>*/}
                     {/*    {truncate(tv.overview, 150)}*/}
