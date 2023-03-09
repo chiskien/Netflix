@@ -47,9 +47,6 @@ export const Navbar: React.FC = () => {
                                       bgColor={"teal.400"}
                                       as={ReactLink} color={"teal.50"}
                                       textDecoration={"none"}>Login</Link>
-                                <Link to={"/register"} as={ReactLink} textDecoration={"none"}
-                                      className={"btn"} bgColor={"teal.400"}
-                                      color={"teal.50"}>Register</Link>
                             </Stack>
                         )
                     }

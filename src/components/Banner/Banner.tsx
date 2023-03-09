@@ -46,10 +46,11 @@ export const Banner: React.FC = () => {
                  objectFit={"contain"}
                  bgSize={"cover"}
                  position={"relative"}
-                 height={"650px"}
+                 height={"670px"}
                  style={{}}>
                 <Box height={"100%"} width={"100%"} position={"absolute"}
                      className={"banner__overlay"}>
+                    <div className={"banner__fadeTop"}></div>
                     <Stack spacing={"50px"} direction={"column"}
                            className={"banner__contents"}>
                         <Heading as={"h1"} fontSize={"3rem"} textColor={"teal.50"}
@@ -62,16 +63,16 @@ export const Banner: React.FC = () => {
                             {truncate(heroSectionSeries?.overview, 150)}
                         </Text>
                         <ButtonGroup>
-                            <Button colorScheme={"teal"} variant={"outline"}
-                                    color={"teal.200"}
-                                    width={"150px"}
+                            <Button colorScheme={"teal"} variant={"solid"}
+                                    width={"170px"}
+                                    borderRadius={"20px"}
                                     className={"banner__button"}>
                                 {/*<Image src={film} minHeight="10px"/>*/}
                                 Watch
                             </Button>
                             <Button colorScheme={"teal"} variant={"outline"}
                                     color={"teal.200"}
-                                    width={"150px"}
+                                    width={"120px"}
                                     className={"banner__button"}>
                                 Add to list
                             </Button>
