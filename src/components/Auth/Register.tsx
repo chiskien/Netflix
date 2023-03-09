@@ -51,7 +51,6 @@ export const Register: React.FC = () => {
                 duration: 4000,
                 status: "error"
             })
-            console.error(err.message);
         })
     }
 

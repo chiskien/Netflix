@@ -12,7 +12,7 @@ import {Disclaimer} from "./Disclaimer";
 export const HomePage = () => {
 
     return (
-        <Container maxW={"container.xl"}>
+        <Container minW={"container.xl"}>
             <Disclaimer/>
             <Flex marginBottom={"20px"} gap={5} marginTop={"20px"} alignItems={"center"}>
                 <Heading size={"lg"}

@@ -46,43 +46,36 @@ export const Banner: React.FC = () => {
                  objectFit={"contain"}
                  bgSize={"cover"}
                  position={"relative"}
-                 height={"700px"}
+                 height={"650px"}
                  style={{}}>
                 <Box height={"100%"} width={"100%"} position={"absolute"}
                      className={"banner__overlay"}>
-                    <Stack justifyContent={"space-evenly"} direction={"column"} className={"banner__contents"}>
-                        <Box>
-                            <Heading as={"h1"} fontSize={"3rem"} textColor={"teal.50"}
-                                     className="banner__title">
-                                {heroSectionSeries?.name}
-                            </Heading>
+                    <Stack spacing={"50px"} direction={"column"}
+                           className={"banner__contents"}>
+                        <Heading as={"h1"} fontSize={"3rem"} textColor={"teal.50"}
+                                 className="banner__title">
+                            {heroSectionSeries?.name}
+                        </Heading>
+                        <Box className="banner__information">
                         </Box>
-                        <Stack className="banner__information">
-
-                        </Stack>
-                        <Box>
-                            <ButtonGroup>
-                                <Button colorScheme={"teal"} variant={"outline"}
-                                        color={"teal.400"}
-                                        width={"130px"}
-                                        className={"banner__button"}>
-                                    {/*<Image src={film} minHeight="10px"/>*/}
-                                    Watch
-                                </Button>
-                                <Button colorScheme={"teal"} variant={"outline"}
-                                        color={"teal.400"}
-                                        width={"130px"}
-                                        className={"banner__button"}>
-                                    Add to list
-                                </Button>
-                            </ButtonGroup>
-
-                        </Box>
-                        <Box>
-                            <Text fontSize={"1.3rem"} textColor={"teal.50"} className={"banner__description"}>
-                                {truncate(heroSectionSeries?.overview, 150)}
-                            </Text>
-                        </Box>
+                        <Text fontSize={"1.3em"} textColor={"teal.50"} className={"banner__description"}>
+                            {truncate(heroSectionSeries?.overview, 150)}
+                        </Text>
+                        <ButtonGroup>
+                            <Button colorScheme={"teal"} variant={"outline"}
+                                    color={"teal.200"}
+                                    width={"150px"}
+                                    className={"banner__button"}>
+                                {/*<Image src={film} minHeight="10px"/>*/}
+                                Watch
+                            </Button>
+                            <Button colorScheme={"teal"} variant={"outline"}
+                                    color={"teal.200"}
+                                    width={"150px"}
+                                    className={"banner__button"}>
+                                Add to list
+                            </Button>
+                        </ButtonGroup>
                     </Stack>
                     <div className="banner__fadeBottom">
                     </div>
