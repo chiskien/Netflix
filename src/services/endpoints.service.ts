@@ -13,4 +13,5 @@ export const topRatedSeriesUrl = `${tmdbApi}/tv/top_rated?api_key=${key}`;
 export const netflixOriginalsUrl = `${tmdbApi}/discover/tv?api_key=${key}&with_networks=213&sort_by=popularity.desc`;
 export const hboOriginalsUrl = `${tmdbApi}/discover/tv?api_key=${key}&with_networks=49&sort_by=popularity.desc`;
 
+export const listGenresForTVUrl = `${tmdbApi}/genre/tv/list?api_key=${key}`;
 

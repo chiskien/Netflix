@@ -33,7 +33,7 @@ export interface Movie {
     popularity: number;
     overview: string;
     vote_count: number;
-    genre_ids: GenreId[];
+    genre_ids: GenreId;
     genres: Genre[];
     revenue: number;
     tagline: string | null;

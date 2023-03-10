@@ -30,7 +30,6 @@ export const Navbar: React.FC = () => {
                     </Box>
                     <Stack direction={"row"} width={"70%"} spacing={"40px"} alignItems={"center"}>
                         <Link to={"/"} as={ReactLink} color={"teal.50"} className={"nav__link"}>
-                            <Image width={"20%"} src={login} marginRight={"3px"} minHeight="10px"/>
                             Home
                         </Link>
                         <Link to={"/movies"} as={ReactLink} color={"teal.50"} className={"nav__link"}>
