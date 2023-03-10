@@ -1,38 +1,55 @@
 import React, {useCallback, useEffect, useState} from "react";
 import "./Banner.scss";
 import {Box, Button, ButtonGroup, Heading, Image, Stack, Text} from "@chakra-ui/react";
-import {getRandomNumber, truncate} from "../../helpers/helper";
+import {getRandomNumber, transformSeries, truncate} from "../../helpers/helper";
 import {TV} from "../../models/Movie";
-import {getNetflixOriginal} from "../../services/netflix-original.service";
 import video from "../../assets/icons/filled/video.svg";
 import bookmark from "../../assets/icons/regular/bookmark.svg";
-import {getGenresFrom} from "../../services/genre.service";
+import {getMyBiasSeries} from "../../services/getBiasedSeries.service";
 
 export const Banner: React.FC = () => {
     const [heroSectionSeries, setHeroSectionSeries] = useState<TV>({
-        adult: false,
+        episode_run_time: [], seasons: [],
+        status: "",
+        type: "",
+        first_air_date_toDate: new Date(),
+        first_air_date: "",
         backdrop_path: "",
-        genre_ids: [],
         genres: [],
         id: 0,
         original_language: "",
-        original_title: "",
+        original_name: "",
         overview: "",
         popularity: 0,
         poster_path: "",
-        release_date: "",
-        revenue: 0,
+        vote_average: 0,
         tagline: "",
-        title: "",
-        vote_count: 0,
         name: ""
     });
+    const arraySeriesNumbers = [
+        60059, //Better Call Saul
+        94605, //Arcane
+        1396, //Breaking Bad
+        94796, //Crash Landing on You
+        78191, //You
+        84958, //Loki
+        94997, //House of the Dragon
+        1399, //GOT
+        1421, //ModernFamily,
+        100088, //The last of us,
+        70785, //Anne
+        66732, //Stranger Things
+    ]
+
     const loadOriginals2 = useCallback(async (): Promise<void> => {
-        const response = await getNetflixOriginal();
-        const netflixOriginalSeries: TV[] = response.results;
-        const randomHeroSectionSeries: TV =
-            netflixOriginalSeries[getRandomNumber(netflixOriginalSeries.length)];
-        randomHeroSectionSeries.genres = await getGenresFrom(randomHeroSectionSeries);
+        const bannerSeries: TV[] = await getMyBiasSeries(arraySeriesNumbers);
+        //filtering wjbu shit
+        //get random series from notWjbuShit Array
+        let randomHeroSectionSeries: TV =
+            bannerSeries[getRandomNumber(bannerSeries.length)];
+        //get genre form returned genresId
+        randomHeroSectionSeries = await transformSeries(randomHeroSectionSeries);
+        console.log(randomHeroSectionSeries);
         setHeroSectionSeries(randomHeroSectionSeries);
     }, []);
 
@@ -65,9 +82,9 @@ export const Banner: React.FC = () => {
                             </Heading>
                             <Stack direction={"row"} alignItems={"center"} spacing={"20px"} mt={"20px"} mb={"40px"}>
                                 <Button colorScheme={"teal"} height={"1.5rem"} width={"1.5rem"}>HD</Button>
-                                <Text>2022</Text>
-                                <Text>129min</Text>
-                                <Stack spacing={"10px"} direction={"row"} className="banner__information">
+                                <Text>{heroSectionSeries.first_air_date_toDate.getFullYear()}</Text>
+                                <Text>{heroSectionSeries.episode_run_time}m</Text>
+                                <Stack spacing={"5px"} direction={"row"} className="banner__information">
 
                                     {heroSectionSeries.genres.map((genre) => (
                                         <Text color={"teal.300"} key={genre.id}>{genre.name}</Text>
