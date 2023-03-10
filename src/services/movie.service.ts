@@ -1,4 +1,4 @@
-import {DiscoverMovie, DiscoverTV, Response} from "../models/Movie";
+import {Movie, DiscoverTV, Response} from "../models/Movie";
 import {
     popularMoviesUrl,
     popularSeriesUrl,
@@ -7,7 +7,7 @@ import {
     upComingMoviesUrl
 } from "./endpoints.service";
 
-export async function getPopularMovies(page = 1): Promise<Response<DiscoverMovie[]>> {
+export async function getPopularMovies(page = 1): Promise<Response<Movie[]>> {
     const response = await fetch(`${popularMoviesUrl}&page=${page}`);
     return await response.json();
 }
@@ -22,12 +22,12 @@ export async function getTopRatedSeries(page = 1): Promise<Response<DiscoverTV[]
     return await response.json();
 }
 
-export async function getTopRatedMovies(page = 1): Promise<Response<DiscoverMovie[]>> {
+export async function getTopRatedMovies(page = 1): Promise<Response<Movie[]>> {
     const response = await fetch(`${topRatedMoviesUrl}&page=${page}`);
     return await response.json();
 }
 
-export async function getUpComingMovies(page = 1): Promise<Response<DiscoverMovie[]>> {
+export async function getUpComingMovies(page = 1): Promise<Response<Movie[]>> {
     const response = await fetch(`${upComingMoviesUrl}&page=${page}`);
     return await response.json();
 }

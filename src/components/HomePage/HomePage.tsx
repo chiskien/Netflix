@@ -8,6 +8,7 @@ import {
     topRatedMoviesUrl
 } from "../../services/endpoints.service";
 import {Disclaimer} from "./Disclaimer";
+import {BestPicksForYouSeries} from "../Movie/BestPicksForYouSeries";
 
 export const HomePage = () => {
 
@@ -25,6 +26,7 @@ export const HomePage = () => {
                     <Button colorScheme={"teal"} variant={"solid"}>Trending</Button>
                 </ButtonGroup>
             </Flex>
+            <BestPicksForYouSeries title={"Best Picks For You"}/>
             <MovieList title={"Most popular movies"} apiUrl={`${popularMoviesUrl}`} page={1} isMovie={true}/>
             <MovieList title={"HBO Originals"} apiUrl={`${hboOriginalsUrl}`} page={1} isMovie={false}/>
             <MovieList title={"Netflix Originals"} page={1} apiUrl={`${netflixOriginalsUrl}`} isMovie={false}/>

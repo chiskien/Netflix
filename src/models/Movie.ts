@@ -9,7 +9,7 @@ export interface Cast {
     adult: boolean;
     gender: number;
     id: number;
-    known_for?: DiscoverMovie[];
+    known_for?: Movie[];
     known_for_department: string;
     name: string;
     original_name: string;
@@ -21,7 +21,7 @@ export interface Cast {
     other: number;
 }
 
-export interface DiscoverMovie {
+export interface Movie {
     id: number;
     adult: boolean;
     title: string;
@@ -59,7 +59,7 @@ export type Response<T> = {
     total_page: number;
 }
 
-export interface DiscoverTV extends DiscoverMovie {
+export interface DiscoverTV extends Movie {
     name: string,
     vote_average: number,
     first_air_date: string

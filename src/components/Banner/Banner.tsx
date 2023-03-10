@@ -6,6 +6,7 @@ import {TV} from "../../models/Movie";
 import video from "../../assets/icons/filled/video.svg";
 import bookmark from "../../assets/icons/regular/bookmark.svg";
 import {getMyBiasSeries} from "../../services/getBiasedSeries.service";
+import {arraySeriesNumbers} from "../../models/SeriesId";
 
 export const Banner: React.FC = () => {
     const [heroSectionSeries, setHeroSectionSeries] = useState<TV>({
@@ -28,20 +29,7 @@ export const Banner: React.FC = () => {
     });
 
     const [isLoading, setIsLoading] = useState<boolean>(false);
-    const arraySeriesNumbers = [
-        60059, //Better Call Saul
-        94605, //Arcane
-        1396, //Breaking Bad
-        94796, //Crash Landing on You
-        78191, //You
-        84958, //Loki
-        94997, //House of the Dragon
-        1399, //GOT
-        1421, //ModernFamily,
-        100088, //The last of us,
-        70785, //Anne
-        66732, //Stranger Things
-    ]
+
 
     const loadOriginals2 = useCallback(async (): Promise<void> => {
         const bannerSeries: TV[] = await getMyBiasSeries(arraySeriesNumbers);
