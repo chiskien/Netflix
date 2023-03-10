@@ -1,0 +1,10 @@
+<svg id="magicoon-Filled" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <defs>
+        <style>.cls-1{fill:#41416e;}</style>
+    </defs>
+    <title>sliders-h</title>
+    <g id="sliders-h-Filled">
+        <path id="sliders-h-Filled-2" data-name="sliders-h-Filled" class="cls-1"
+              d="M8.5,3.5A3.494,3.494,0,0,0,5.163,6H3A1,1,0,0,0,3,8H5.163A3.493,3.493,0,1,0,8.5,3.5Zm0,5A1.5,1.5,0,1,1,10,7,1.5,1.5,0,0,1,8.5,8.5ZM14,7a1,1,0,0,1,1-1h6a1,1,0,0,1,0,2H15A1,1,0,0,1,14,7Zm7,9H18.837a3.5,3.5,0,1,0,0,2H21a1,1,0,0,0,0-2Zm-5.5,2.5A1.5,1.5,0,1,1,17,17,1.5,1.5,0,0,1,15.5,18.5ZM10,17a1,1,0,0,1-1,1H3a1,1,0,0,1,0-2H9A1,1,0,0,1,10,17Z"/>
+    </g>
+</svg>

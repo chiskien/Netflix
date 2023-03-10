@@ -1,0 +1,10 @@
+<svg id="magicoon-Filled" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <defs>
+        <style>.cls-1{fill:#41416e;}</style>
+    </defs>
+    <title>desktop</title>
+    <g id="desktop-Filled">
+        <path id="desktop-Filled-2" data-name="desktop-Filled" class="cls-1"
+              d="M17,2.5H7A4.505,4.505,0,0,0,2.5,7v6A4.505,4.505,0,0,0,7,17.5h4V20H8a1,1,0,0,0,0,2h8a1,1,0,0,0,0-2H13V17.5h4A4.505,4.505,0,0,0,21.5,13V7A4.505,4.505,0,0,0,17,2.5Z"/>
+    </g>
+</svg>

@@ -1,0 +1,10 @@
+<svg id="magicoon-Filled" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <defs>
+        <style>.cls-1{fill:#41416e;}</style>
+    </defs>
+    <title>arrow-right</title>
+    <g id="arrow-right-Filled">
+        <path id="arrow-right-Filled-2" data-name="arrow-right-Filled" class="cls-1"
+              d="M21.707,12.707l-7,7a1,1,0,0,1-1.414-1.414L18.586,13H3a1,1,0,0,1,0-2H18.586L13.293,5.707a1,1,0,0,1,1.414-1.414l7,7A1,1,0,0,1,21.707,12.707Z"/>
+    </g>
+</svg>

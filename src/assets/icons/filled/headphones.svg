@@ -1,0 +1,10 @@
+<svg id="magicoon-Filled" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <defs>
+        <style>.cls-1{fill:#41416e;}</style>
+    </defs>
+    <title>headphones</title>
+    <g id="headphones-Filled">
+        <path id="headphones-Filled-2" data-name="headphones-Filled" class="cls-1"
+              d="M18.5,15.5v4a2,2,0,0,1-4,0v-4a2,2,0,0,1,4,0Zm-11-2a2,2,0,0,0-2,2v4a2,2,0,0,0,4,0v-4A2,2,0,0,0,7.5,13.5ZM12,2A10.011,10.011,0,0,0,2,12v5a1,1,0,0,0,2,0V12a8,8,0,0,1,16,0v5a1,1,0,0,0,2,0V12A10.011,10.011,0,0,0,12,2Z"/>
+    </g>
+</svg>

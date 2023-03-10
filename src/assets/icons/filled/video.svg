@@ -1,0 +1,10 @@
+<svg id="magicoon-Filled" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <defs>
+        <style>.cls-1{fill:#E6FFFA;}</style>
+    </defs>
+    <title>video</title>
+    <g id="video-Filled">
+        <path id="video-Filled-2" data-name="video-Filled" class="cls-1"
+              d="M16.25,10v4a4.505,4.505,0,0,1-4.5,4.5h-5A4.505,4.505,0,0,1,2.25,14V10a4.505,4.505,0,0,1,4.5-4.5h5A4.505,4.505,0,0,1,16.25,10Zm4.6-2.261a1.689,1.689,0,0,0-1.736.085l-1.14.76A.5.5,0,0,0,17.75,9v6a.5.5,0,0,0,.223.416l1.138.759A1.7,1.7,0,0,0,21.75,14.76V9.24A1.7,1.7,0,0,0,20.849,7.739Z"/>
+    </g>
+</svg>

@@ -1,0 +1,10 @@
+<svg id="magicoon-Filled" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <defs>
+        <style>.cls-1{fill:#41416e;}</style>
+    </defs>
+    <title>copy</title>
+    <g id="copy-Filled">
+        <path id="copy-Filled-2" data-name="copy-Filled" class="cls-1"
+              d="M11,19.5h5.7A3.978,3.978,0,0,1,13,22H6a4,4,0,0,1-4-4V10A4.007,4.007,0,0,1,5.5,6.03V14A5.51,5.51,0,0,0,11,19.5ZM19.5,6.25h2.12A1.638,1.638,0,0,0,21.41,6L18,2.59a1.156,1.156,0,0,0-.25-.2V4.5A1.758,1.758,0,0,0,19.5,6.25Zm0,1.5A3.256,3.256,0,0,1,16.25,4.5V2H11A4,4,0,0,0,7,6v8a4,4,0,0,0,4,4h7a4,4,0,0,0,4-4V7.75Z"/>
+    </g>
+</svg>

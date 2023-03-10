@@ -1,0 +1,10 @@
+<svg id="magicoon-Filled" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <defs>
+        <style>.cls-1{fill:#41416e;}</style>
+    </defs>
+    <title>flag</title>
+    <g id="flag-Filled">
+        <path id="flag-Filled-2" data-name="flag-Filled" class="cls-1"
+              d="M19.448,14.77a.5.5,0,0,1-.448.723H6.5V21a1,1,0,0,1-2,0V6.993A4.505,4.505,0,0,1,9,2.493H19a.5.5,0,0,1,.448.724L16.9,8.322a1.508,1.508,0,0,0,0,1.342Z"/>
+    </g>
+</svg>

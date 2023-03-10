@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from "react";
 import "./Banner.scss";
-import {Box, Button, ButtonGroup, Heading, Stack, Text} from "@chakra-ui/react";
+import {Box, Button, ButtonGroup, Heading, Image, Stack, Text} from "@chakra-ui/react";
 import {getRandomNumber, truncate} from "../../helpers/helper";
 import {Movie, TV} from "../../models/Movie";
-import {getPopularMovies, getPopularSeries} from "../../services/movie.service";
 import {getNetflixOriginal} from "../../services/netflix-original.service";
+import video from "../../assets/icons/filled/video.svg";
+import bookmark from "../../assets/icons/regular/bookmark.svg";
 
 export const Banner: React.FC = () => {
     const [heroSectionSeries, setHeroSectionSeries] = useState<TV>({
@@ -69,17 +70,19 @@ export const Banner: React.FC = () => {
                         </Text>
                         <ButtonGroup>
                             <Button colorScheme={"teal"} variant={"solid"}
-                                    width={"160px"}
-                                    borderRadius={"20px"}
-                                    className={"banner__button"}>
-                                {/*<Image src={film} minHeight="10px"/>*/}
+                                    width={"150px"}
+                                    bgColor={"teal.400"}
+                                    borderRadius={"10px"}
+                                    className={"banner__button play__button"}>
+                                <Image width={"25%"} src={video} marginRight={"5px"} minHeight="10px"/>
                                 Watch
                             </Button>
-                            <Button colorScheme={"teal"} variant={"outline"}
+                            <Button colorScheme={"whiteAlpha"} variant={"outline"}
                                     color={"teal.200"}
-                                    width={"120px"}
-                                    borderRadius={"20px"}
+                                    width={"150px"}
+                                    borderRadius={"15px"}
                                     className={"banner__button"}>
+                                <Image width={"20%"} src={bookmark} marginRight={"5px"} minHeight="10px"/>
                                 Add to list
                             </Button>
                         </ButtonGroup>

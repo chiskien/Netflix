@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from "react";
 import "./Navbar.scss";
-import {Box, Link, Stack, Text} from "@chakra-ui/react";
+import {Box, Image, Link, Stack, Text} from "@chakra-ui/react";
 import {Link as ReactLink} from "react-router-dom";
+import login from "../../assets/icons/filled/log-in.svg";
 
 export const Navbar: React.FC = () => {
     const [user, setUser] = useState<boolean>(false);
@@ -28,11 +29,22 @@ export const Navbar: React.FC = () => {
                              alt="Netflix logo" className={"nav__logo"}/>
                     </Box>
                     <Stack direction={"row"} width={"70%"} spacing={"40px"} alignItems={"center"}>
-                        <Link to={"/"} as={ReactLink} color={"teal.50"} className={"nav__link"}>Home</Link>
-                        <Link to={"/movies"} as={ReactLink} color={"teal.50"} className={"nav__link"}>Movies</Link>
-                        <Link to={"/series"} as={ReactLink} color={"teal.50"} className={"nav__link"}>TV-Series</Link>
-                        <Link to={"/genre"} as={ReactLink} color={"teal.50"} className={"nav__link"}>Genre</Link>
-                        <Link to={"/country"} as={ReactLink} color={"teal.50"} className={"nav__link"}>Country</Link>
+                        <Link to={"/"} as={ReactLink} color={"teal.50"} className={"nav__link"}>
+                            <Image width={"20%"} src={login} marginRight={"3px"} minHeight="10px"/>
+                            Home
+                        </Link>
+                        <Link to={"/movies"} as={ReactLink} color={"teal.50"} className={"nav__link"}>
+                            Movies
+                        </Link>
+                        <Link to={"/series"} as={ReactLink} color={"teal.50"} className={"nav__link"}>
+                            TV-Series
+                        </Link>
+                        <Link to={"/genre"} as={ReactLink} color={"teal.50"} className={"nav__link"}>
+                            Genre
+                        </Link>
+                        <Link to={"/country"} as={ReactLink} color={"teal.50"} className={"nav__link"}>
+                            Country
+                        </Link>
                     </Stack>
                     <Box>
                         <Text>adasdsa</Text>
@@ -46,7 +58,10 @@ export const Navbar: React.FC = () => {
                                 <Link to={"/login"} className={"btn"}
                                       bgColor={"teal.400"}
                                       as={ReactLink} color={"teal.50"}
-                                      textDecoration={"none"}>Login</Link>
+                                      textDecoration={"none"}>
+                                    <Image width={"20%"} src={login} marginRight={"3px"} minHeight="10px"/>
+                                    Login
+                                </Link>
                             </Stack>
                         )
                     }

@@ -1,0 +1,10 @@
+<svg id="magicoon-Filled" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <defs>
+        <style>.cls-1{fill:#41416e;}</style>
+    </defs>
+    <title>chevron-circle-up</title>
+    <g id="chevron-circle-up-Filled">
+        <path id="chevron-circle-up-Filled-2" data-name="chevron-circle-up-Filled" class="cls-1"
+              d="M12,2.5A9.5,9.5,0,1,0,21.5,12,9.509,9.509,0,0,0,12,2.5Zm3.71,11.21a1.014,1.014,0,0,1-1.42,0L12,11.41l-2.29,2.3a1,1,0,0,1-1.42-1.42l3-3a1.008,1.008,0,0,1,1.42,0l3,3A1.008,1.008,0,0,1,15.71,13.71Z"/>
+    </g>
+</svg>
