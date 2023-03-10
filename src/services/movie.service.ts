@@ -1,4 +1,4 @@
-import {Movie, Response, TV} from "../models/Movie";
+import {DiscoverMovie, DiscoverTV, Response} from "../models/Movie";
 import {
     popularMoviesUrl,
     popularSeriesUrl,
@@ -7,27 +7,27 @@ import {
     upComingMoviesUrl
 } from "./endpoints.service";
 
-export async function getPopularMovies(page = 1): Promise<Response<Movie[]>> {
+export async function getPopularMovies(page = 1): Promise<Response<DiscoverMovie[]>> {
     const response = await fetch(`${popularMoviesUrl}&page=${page}`);
     return await response.json();
 }
 
-export async function getPopularSeries(page = 1): Promise<Response<TV[]>> {
+export async function getPopularSeries(page = 1): Promise<Response<DiscoverTV[]>> {
     const response = await fetch(`${popularSeriesUrl}&page=${page}`);
     return await response.json();
 }
 
-export async function getTopRatedSeries(page = 1): Promise<Response<TV[]>> {
+export async function getTopRatedSeries(page = 1): Promise<Response<DiscoverTV[]>> {
     const response = await fetch(`${topRatedSeriesUrl}&page=${page}`);
     return await response.json();
 }
 
-export async function getTopRatedMovies(page = 1): Promise<Response<Movie[]>> {
+export async function getTopRatedMovies(page = 1): Promise<Response<DiscoverMovie[]>> {
     const response = await fetch(`${topRatedMoviesUrl}&page=${page}`);
     return await response.json();
 }
 
-export async function getUpComingMovies(page = 1): Promise<Response<Movie[]>> {
+export async function getUpComingMovies(page = 1): Promise<Response<DiscoverMovie[]>> {
     const response = await fetch(`${upComingMoviesUrl}&page=${page}`);
     return await response.json();
 }

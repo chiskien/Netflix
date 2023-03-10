@@ -26,6 +26,8 @@ export const Banner: React.FC = () => {
         tagline: "",
         name: ""
     });
+
+    const [isLoading, setIsLoading] = useState<boolean>(false);
     const arraySeriesNumbers = [
         60059, //Better Call Saul
         94605, //Arcane
