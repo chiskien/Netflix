@@ -11,4 +11,7 @@ export const arraySeriesNumbers = [
     100088, //The last of us,
     70785, //Anne
     66732, //Stranger Things
+    87739, //Queen's Gambit
+    91239, //Bridgerton
+    70523, //Dark
 ]

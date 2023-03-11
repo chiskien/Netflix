@@ -11,7 +11,8 @@ import {
     Image,
     Input,
     Link,
-    Stack, useToast
+    Stack,
+    useToast
 } from "@chakra-ui/react";
 import {Link as ReactLink} from "react-router-dom";
 import {auth} from "../../firebaseConfig";
@@ -22,36 +23,43 @@ export const Register: React.FC = () => {
     //useRef Hook for getting value from input
     const emailRef = useRef<HTMLInputElement>(null!);
     const passRef = useRef<HTMLInputElement>(null!);
-
+    const confirmRef = useRef<HTMLInputElement>(null!);
     //Charka UI: Toast
     const toast = useToast()
     //Submit Action
     const handleButtonSubmit = (e: React.FormEvent): void => {
         e.preventDefault();
-
-        createUserWithEmailAndPassword(
-            auth,
-            emailRef.current.value,
-            passRef.current.value
-        ).then((account) => {
+        if (passRef.current.value !== confirmRef.current.value) {
             toast({
-                title: "Account Created.",
-                description: "We have created your account for you",
-                isClosable: true,
-                position: "bottom",
-                duration: 2000,
-                status: "success",
+                title: "Confirmed Password wrong",
+                description: "Please check your password",
+                status: "warning"
             })
-        }).catch((err: Error) => {
-            toast({
-                title: err.name,
-                description: err.message,
-                isClosable: true,
-                position: "bottom",
-                duration: 4000,
-                status: "error"
+        } else {
+            createUserWithEmailAndPassword(
+                auth,
+                emailRef.current.value,
+                passRef.current.value
+            ).then((account) => {
+                toast({
+                    title: "Account Created.",
+                    description: "We have created your account for you",
+                    isClosable: true,
+                    position: "bottom",
+                    duration: 2000,
+                    status: "success",
+                })
+            }).catch((err: Error) => {
+                toast({
+                    title: err.name,
+                    description: err.message,
+                    isClosable: true,
+                    position: "bottom",
+                    duration: 4000,
+                    status: "error"
+                })
             })
-        })
+        }
     }
 
     return (
@@ -97,13 +105,12 @@ export const Register: React.FC = () => {
                             <FormControl isRequired mt={4}>
                                 <FormLabel>Password</FormLabel>
                                 <Input type={"password"}
-                                />
+                                       ref={passRef}/>
                             </FormControl>
                             <FormControl isRequired mt={4} mb={8}>
                                 <FormLabel>Confirm Password</FormLabel>
                                 <Input type={"password"}
-                                       ref={passRef}
-                                />
+                                       ref={confirmRef}/>
                             </FormControl>
                             <Box marginY={"20px"}>
                                 <Button width={"100%"} boxShadow={"3px 8px 14px 3px rgba(0,0,0,0.1);"}
