@@ -70,9 +70,9 @@ export const MovieList: React.FC<MovieProps> = ({apiUrl, title, isMovie = true, 
             <SimpleGrid columns={8} spacing={3} className={"movie__list"}>
                 {
                     isMovie ? movies.map((movie) => (
-                            <MovieCard key={movie.id} movie={movie}/>))
+                            <MovieCard key={movie.id} movie={movie} isLoading={isLoading}/>))
                         : series.map((tv) => (
-                            <SeriesCard key={tv.id} tv={tv}/>
+                            <SeriesCard key={tv.id} tv={tv} isLoading={isLoading}/>
                         ))
                 }
             </SimpleGrid>

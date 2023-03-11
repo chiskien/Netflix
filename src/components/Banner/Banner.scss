@@ -12,24 +12,28 @@
   &__contents {
     margin-left: 50px;
     padding-top: 190px;
-    width: 50rem;
+    width: 47rem;
     color: #F5F5F4;
     z-index: 200000000;
   }
 
-
+  &__title {
+    text-shadow: 0 1px 5px #81E6D9;
+  }
   &__information {
     width: 100%;
     font-weight: 700;
   }
 
   &__description {
-    width: 100%;
+    width: 80%;
     line-height: 1.5;
     height: 70px;
     max-width: 600px;
     font-weight: 700;
-    text-shadow: 0.5px 0.5px #202020;
+  }
+  &__textShadow {
+    text-shadow: 0 1px 10px #202020;
   }
 
   &__fadeBottom {
