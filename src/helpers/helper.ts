@@ -14,7 +14,15 @@ export function blockingWjbuShitSeries(series: TV[]): TV[] {
     })
 }
 
-export async function transformSeries(series: TV): Promise<TV> {
+export function transformSeries(series: TV[]): TV[] {
+    // series.genres = await getGenresFrom(series);
+    series.map((serie: TV) => {
+        serie.first_air_date_toDate = new Date(serie.first_air_date);
+    })
+    return series;
+}
+
+export function transformSeries2(series: TV): TV {
     // series.genres = await getGenresFrom(series);
     series.first_air_date_toDate = new Date(series.first_air_date);
     return series;

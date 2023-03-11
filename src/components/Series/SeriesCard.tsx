@@ -1,26 +1,30 @@
 import React from "react";
 import {TV} from "../../models/Movie";
-import {Box, Card, CardBody, Image, Link} from "@chakra-ui/react";
+import {Box, Card, CardBody, Image, Link, Tooltip} from "@chakra-ui/react";
 import {NavLink as ReactLink} from "react-router-dom";
-import {truncate} from "../../helpers/helper";
+import {transformSeries2, truncate} from "../../helpers/helper";
 import "../Movie/MovieCard.scss"
 import {image_base_url} from "../../services/endpoints.service";
 
 export const SeriesCard: React.FC<{ tv: TV }> = ({tv}) => {
+    const tvSeries = transformSeries2(tv);
     return (
-        <Card borderRadius={"lg"} background={"#202020"} marginBottom={"30px"}
-              className={"movie__card"}>
-            <CardBody padding={0}>
-                <Image src={`${image_base_url}/${tv?.poster_path}`} className={"row__poster"}/>
-                <Box padding={"15px"} className="movie__information">
-                    <Link style={{textDecoration: "none"}}
-                          as={ReactLink} fontSize={"1rem"} color={"teal.50"} to={"/tv/detail"}>
-                        {truncate(tv.name, 20)}
-                    </Link>
-                    {/*<Text>*/}
-                    {/*    {truncate(tv.overview, 150)}*/}
-                    {/*</Text>*/}
-                </Box>
-            </CardBody>
-        </Card>)
+        <Tooltip label={tv.name} placement={"bottom"} hasArrow arrowSize={10} bgColor={"teal.500"}>
+            <Card borderRadius={"lg"} background={"#202020"} marginBottom={"30px"}
+                  className={"movie__card"}>
+                <CardBody padding={0}>
+                    <Image src={`${image_base_url}/${tvSeries?.poster_path}`} className={"row__poster"}/>
+                    <Box padding={"15px"} className="movie__information">
+                        <Link style={{textDecoration: "none"}}
+                              as={ReactLink} fontSize={"1rem"} color={"teal.50"} to={"/tv/detail"}>
+                            {truncate(tvSeries.name, 11.7)}
+                        </Link>
+                        {/*<Text>*/}
+                        {/*    {truncate(tv.overview, 150)}*/}
+                        {/*</Text>*/}
+                    </Box>
+                </CardBody>
+            </Card>
+        </Tooltip>
+    )
 }

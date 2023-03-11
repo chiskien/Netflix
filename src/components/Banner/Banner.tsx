@@ -7,6 +7,11 @@ import video from "../../assets/icons/filled/video.svg";
 import bookmark from "../../assets/icons/regular/bookmark.svg";
 import {getMyBiasSeries} from "../../services/getBiasedSeries.service";
 import {arraySeriesNumbers} from "../../models/SeriesId";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import {Swiper, SwiperSlide} from "swiper/react";
+import {Autoplay, Navigation, Pagination} from "swiper";
 
 export const Banner: React.FC = () => {
     const [heroSectionSeries, setHeroSectionSeries] = useState<TV>({
@@ -27,94 +32,119 @@ export const Banner: React.FC = () => {
         tagline: "",
         name: ""
     });
+    const [heroSectionSeriesArr, setHeroSectionSeriesArr] = useState<TV[]>([]);
 
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
-
     const loadOriginals2 = useCallback(async (): Promise<void> => {
         setIsLoading(true);
-        const bannerSeries: TV[] = await getMyBiasSeries(arraySeriesNumbers);
+        let bannerSeries: TV[] = await getMyBiasSeries(arraySeriesNumbers);
         let randomHeroSectionSeries: TV =
             bannerSeries[getRandomNumber(bannerSeries.length)];
-        randomHeroSectionSeries = await transformSeries(randomHeroSectionSeries);
+        // randomHeroSectionSeries = await transformSeries(randomHeroSectionSeries);
+        bannerSeries = transformSeries(bannerSeries);
         setHeroSectionSeries(randomHeroSectionSeries);
+        setHeroSectionSeriesArr(bannerSeries);
         setIsLoading(false);
-
     }, []);
 
     useEffect(() => {
         loadOriginals2().then(r => console.log(r));
-    }, [loadOriginals2])
+    }, [])
 
     return (
         <Box>
             <Skeleton isLoaded={!isLoading}>
-                <Box className={"banner"} marginBottom={"40px"}
-                     bgImage={`url("https://image.tmdb.org/t/p/original/${heroSectionSeries?.backdrop_path}")`}
-                     bgPosition={"center top"}
-                     bgRepeat={"no-repeat"}
-                     objectFit={"contain"}
-                     bgSize={"cover"}
-                     position={"relative"}
-                     height={"670px"}
-                     style={{}}>
-                    <Box height={"100%"} width={"100%"} position={"absolute"}
-                         className={"banner__overlay"}>
-                        <div className={"banner__fadeTop"}></div>
-                        <Stack spacing={"70px"} direction={"column"}
-                               className={"banner__contents"}>
-                            <Box>
-                                <Heading as={"h1"} fontSize={"3rem"} textColor={"teal.50"}
-                                         fontFamily={"Noto Sans"}
-                                         fontWeight={"600"}
-                                         className="banner__title">
-                                    {heroSectionSeries?.name}
-                                </Heading>
-                                <Stack direction={"row"} alignItems={"center"} spacing={"20px"} mt={"20px"} mb={"40px"}>
-                                    <Button colorScheme={"teal"} height={"1.5rem"} width={"1.5rem"}>HD</Button>
-                                    <Text>{heroSectionSeries.first_air_date_toDate.getFullYear()}</Text>
-                                    <Text>{heroSectionSeries.episode_run_time}m</Text>
-                                    <Stack spacing={"5px"} direction={"row"} className="banner__information">
+                <Swiper
+                    slidesPerView={1}
+                    spaceBetween={30}
+                    loop={true}
+                    autoplay={{
+                        delay: 3000,
+                        disableOnInteraction: false
+                    }}
+                    pagination={{clickable: true,}}
+                    modules={[Autoplay, Pagination, Navigation]}>
 
-                                        {heroSectionSeries.genres.map((genre) => (
-                                            <Text color={"teal.300"} key={genre.id}>{genre.name}</Text>
-                                        ))}
-                                    </Stack>
-                                </Stack>
-                                <Text fontSize={"1.2rem"} textColor={"teal.50"}
-                                      className={"banner__description"}>
-                                    {truncate(heroSectionSeries?.overview, 150)}
-                                </Text>
-                            </Box>
-                            <Box>
-                                <ButtonGroup gap={"20px"}>
-                                    <Button colorScheme={"teal"} variant={"solid"}
-                                            width={"150px"}
-                                            bgColor={"teal.400"}
-                                            borderRadius={"10px"}
-                                            className={"banner__button play__button"}>
-                                        <Image width={"25%"} src={video} marginRight={"5px"} minHeight="10px"/>
-                                        Watch
-                                    </Button>
-                                    <Button colorScheme={"whiteAlpha"} variant={"outline"}
-                                            color={"teal.200"}
-                                            width={"150px"}
-                                            borderRadius={"15px"}
-                                            className={"banner__button"}>
-                                        <Image width={"20%"} src={bookmark} marginRight={"5px"} minHeight="10px"/>
-                                        Add to list
-                                    </Button>
-                                </ButtonGroup>
-                            </Box>
-                        </Stack>
-                        <div className="banner__fadeRight">
-                        </div>
-                        <div className="banner__fadeLeft">
-                        </div>
-                        <div className="banner__fadeBottom">
-                        </div>
-                    </Box>
-                </Box>
+                    {
+                        heroSectionSeriesArr.map((tv) =>
+                            (<SwiperSlide>
+                                <Box className={"banner"} marginBottom={"40px"}
+                                     bgImage={`url("https://image.tmdb.org/t/p/original/${tv.backdrop_path}")`}
+                                     bgPosition={"center top"}
+                                     bgRepeat={"no-repeat"}
+                                     objectFit={"contain"}
+                                     bgSize={"cover"}
+                                     position={"relative"}
+                                     height={"670px"}
+                                     style={{}}>
+                                    <Box height={"100%"} width={"100%"} position={"absolute"}
+                                         className={"banner__overlay"}>
+                                        <div className={"banner__fadeTop"}></div>
+                                        <Stack spacing={"70px"} direction={"column"}
+                                               className={"banner__contents"}>
+                                            <Box>
+                                                <Heading as={"h1"} fontSize={"3rem"} textColor={"teal.50"}
+                                                         fontFamily={"Noto Sans"}
+                                                         fontWeight={"600"}
+                                                         className="banner__title">
+                                                    {tv?.name}
+                                                </Heading>
+                                                <Stack direction={"row"} alignItems={"center"} spacing={"20px"}
+                                                       mt={"20px"} mb={"40px"}>
+                                                    <Button colorScheme={"teal"} height={"1.5rem"}
+                                                            width={"1.5rem"}>HD</Button>
+                                                    <Text>{tv.first_air_date_toDate.getFullYear()}</Text>
+                                                    <Text>{tv.episode_run_time}m</Text>
+                                                    <Stack spacing={"5px"} direction={"row"}
+                                                           className="banner__information">
+
+                                                        {tv.genres.map((genre) => (
+                                                            <Text color={"teal.300"} key={genre.id}>{genre.name}</Text>
+                                                        ))}
+                                                    </Stack>
+                                                </Stack>
+                                                <Text fontSize={"1.2rem"} textColor={"teal.50"}
+                                                      className={"banner__description"}>
+                                                    {truncate(tv?.overview, 150)}
+                                                </Text>
+                                            </Box>
+                                            <Box>
+                                                <ButtonGroup gap={"20px"}>
+                                                    <Button colorScheme={"teal"} variant={"solid"}
+                                                            width={"150px"}
+                                                            bgColor={"teal.400"}
+                                                            borderRadius={"10px"}
+                                                            className={"banner__button play__button"}>
+                                                        <Image width={"25%"} src={video} marginRight={"5px"}
+                                                               minHeight="10px"/>
+                                                        Watch
+                                                    </Button>
+                                                    <Button colorScheme={"whiteAlpha"} variant={"outline"}
+                                                            color={"teal.200"}
+                                                            width={"150px"}
+                                                            borderRadius={"15px"}
+                                                            className={"banner__button"}>
+                                                        <Image width={"20%"} src={bookmark} marginRight={"5px"}
+                                                               minHeight="10px"/>
+                                                        Add to list
+                                                    </Button>
+                                                </ButtonGroup>
+                                            </Box>
+                                        </Stack>
+                                        <div className="banner__fadeRight">
+                                        </div>
+                                        <div className="banner__fadeLeft">
+                                        </div>
+                                        <div className="banner__fadeBottom">
+                                        </div>
+                                    </Box>
+                                </Box>
+                            </SwiperSlide>)
+                        )
+                    }
+                </Swiper>
+
             </Skeleton>
         </Box>
 

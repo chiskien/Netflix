@@ -3,7 +3,7 @@ import "./Navbar.scss";
 import {Box, Image, Link, Stack, Text} from "@chakra-ui/react";
 import {Link as ReactLink} from "react-router-dom";
 import login from "../../assets/icons/filled/log-in.svg";
-
+import userIcon from "../../assets/icons/filled/user.svg";
 export const Navbar: React.FC = () => {
     const [user, setUser] = useState<boolean>(false);
     const [isShowed, handleShow] = useState<boolean>(false);
@@ -58,7 +58,7 @@ export const Navbar: React.FC = () => {
                                       bgColor={"teal.400"}
                                       as={ReactLink} color={"teal.50"}
                                       textDecoration={"none"}>
-                                    <Image width={"20%"} src={login} marginRight={"3px"} minHeight="10px"/>
+                                    <Image width={"20%"} src={userIcon} marginRight={"3px"} minHeight="10px"/>
                                     Login
                                 </Link>
                             </Stack>
