@@ -8,13 +8,15 @@ import {
     topRatedMoviesUrl
 } from "../../services/endpoints.service";
 import {Disclaimer} from "./Disclaimer";
-import {BestPicksForYouSeries} from "../Movie/BestPicksForYouSeries";
 import "./HomePage.scss";
 
 export const HomePage = () => {
-    const [isMovie, setIsMovie] = useState<boolean>(true);
-    const changeMovie = () => {
-        setIsMovie(!isMovie);
+    const [isSeries, setIsSeries] = useState<boolean>(false);
+    const changeIsMovie = () => {
+        setIsSeries(false);
+    }
+    const changeIsSeries = () => {
+        setIsSeries(true);
     }
 
     return (
@@ -26,28 +28,34 @@ export const HomePage = () => {
                     Recommend
                 </Heading>
                 <ButtonGroup gap={1}>
-
                     <Button colorScheme={"teal"} variant={"solid"}
-                            onClick={changeMovie}
-                    >Movies</Button>
-
+                            isActive={!isSeries}
+                            onClick={changeIsMovie}>
+                        Movies
+                    </Button>
                     <Button colorScheme={"teal"} variant={"solid"}
-                            onClick={changeMovie}
-                    >TV Series</Button>
+                            isActive={isSeries}
+                            onClick={changeIsSeries}>
+                        TV Series
+                    </Button>
 
-                    <Button colorScheme={"teal"} variant={"solid"}>Trending</Button>
+                    <Button colorScheme={"teal"} variant={"solid"}>My List</Button>
                 </ButtonGroup>
             </Flex>
             {
-                isMovie ? (<Box>
-                    <MovieList title={"Most popular movies"} apiUrl={`${popularMoviesUrl}`} page={1} isMovie={true}/>
-                    <MovieList title={"Most Rated Movies"} page={1} apiUrl={`${topRatedMoviesUrl}`} isMovie={true}/>
-
-                </Box>) : (<Box>
-                    {/*<BestPicksForYouSeries title={"Best Picks For You"}/>*/}
-                    <MovieList title={"HBO Originals"} apiUrl={`${hboOriginalsUrl}`} page={1} isMovie={false}/>
-                    <MovieList title={"Netflix Originals"} page={1} apiUrl={`${netflixOriginalsUrl}`} isMovie={false}/>
-                </Box>)
+                isSeries ?
+                    (<Box>
+                        {/*<BestPicksForYouSeries title={"Best Picks For You"}/>*/}
+                        <MovieList title={"HBO Originals"} apiUrl={`${hboOriginalsUrl}`} page={1} isMovie={false}/>
+                        <MovieList title={"Netflix Originals"} page={1} apiUrl={`${netflixOriginalsUrl}`}
+                                   isMovie={false}/>
+                    </Box>)
+                    :
+                    (<Box>
+                        <MovieList title={"Most popular movies"} apiUrl={`${popularMoviesUrl}`} page={1}
+                                   isMovie={true}/>
+                        <MovieList title={"Most Rated Movies"} page={1} apiUrl={`${topRatedMoviesUrl}`} isMovie={true}/>
+                    </Box>)
             }
 
 

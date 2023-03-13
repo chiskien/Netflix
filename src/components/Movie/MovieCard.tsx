@@ -8,8 +8,8 @@ import {image_base_url} from "../../services/endpoints.service";
 
 export const MovieCard: React.FC<{ movie: Movie, isLoading: boolean }> = ({movie, isLoading}) => {
     return (
-        <Tooltip label={movie.title} placement={"bottom"} hasArrow arrowSize={10} bgColor={"teal.500"}>
-            <Skeleton>
+        <Skeleton isLoaded={!isLoading}>
+            <Tooltip label={movie.title} placement={"bottom"} hasArrow arrowSize={10} bgColor={"teal.500"}>
                 <Card borderRadius={"lg"} background={"#202020"} marginBottom={"30px"}
                       className={"movie__card"}>
                     <CardBody padding={0}>
@@ -25,7 +25,7 @@ export const MovieCard: React.FC<{ movie: Movie, isLoading: boolean }> = ({movie
                         </Box>
                     </CardBody>
                 </Card>
-            </Skeleton>
-        </Tooltip>
+            </Tooltip>
+        </Skeleton>
     );
 }
