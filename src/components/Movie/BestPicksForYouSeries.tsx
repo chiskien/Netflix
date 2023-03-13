@@ -30,7 +30,7 @@ export const BestPicksForYouSeries: React.FC<{ title: string }> = ({title}) => {
                 <SimpleGrid columns={8} spacing={3} className={"movie__list"}>
                     {
                         tvs.map((tv) => (
-                            <SeriesCard key={tv.id} tv={tv}/>
+                            <SeriesCard key={tv.id} tv={tv} isLoading={isLoading}/>
                         ))
                     }
                 </SimpleGrid>
