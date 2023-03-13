@@ -1,6 +1,6 @@
 # Creme Dela Creme
 
-A netflix clone, streaming website made by [ChisKien](https://www.github.com/octokatherine)
+A netflix clone, streaming website made by [ChisKien](https://www.github.com/chiskien)
 
 ![Logo](https://res.cloudinary.com/dhihq4dym/image/upload/v1678006451/Untitled_c79vtg.png)
 
