@@ -14,6 +14,7 @@ export const Disclaimer = () => {
             multi-language subtitles supported. Just open <Code>CremeDelaCreme.to</Code> and watch your
             favorite movies,
             tv-shows. We have almost any movie, tv-shows you want to watch!
+            <br/>
             Please help us by sharing this site with your friends. Thanks!
         </Box>
     </Box>)

@@ -1,6 +1,6 @@
 import React, {useCallback, useEffect, useState} from "react";
 import "./Banner.scss";
-import {Box, Button, ButtonGroup, Heading, Image, Skeleton, Stack, Text} from "@chakra-ui/react";
+import {Box, Button, ButtonGroup, Heading, Image, Link, Skeleton, Stack, Text} from "@chakra-ui/react";
 import {transformSeries, truncate} from "../../helpers/helper";
 import {TV} from "../../models/Movie";
 import video from "../../assets/icons/filled/video.svg";
@@ -12,6 +12,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import {Swiper, SwiperSlide} from "swiper/react";
 import {Autoplay, Navigation, Pagination} from "swiper";
+import {Link as ReactLink} from "react-router-dom";
 
 export const Banner: React.FC = () => {
     // const [heroSectionSeries, setHeroSectionSeries] = useState<TV>({
@@ -112,24 +113,30 @@ export const Banner: React.FC = () => {
                                                 </Box>
                                                 <Box>
                                                     <ButtonGroup gap={"20px"}>
-                                                        <Button colorScheme={"teal"} variant={"solid"}
-                                                                width={"150px"}
-                                                                bgColor={"teal.400"}
-                                                                borderRadius={"10px"}
-                                                                className={"banner__button play__button"}>
-                                                            <Image width={"25%"} src={video} marginRight={"5px"}
-                                                                   minHeight="10px"/>
-                                                            Watch
-                                                        </Button>
-                                                        <Button colorScheme={"whiteAlpha"} variant={"outline"}
-                                                                color={"teal.200"}
-                                                                width={"150px"}
-                                                                borderRadius={"15px"}
-                                                                className={"banner__button"}>
-                                                            <Image width={"20%"} src={bookmark} marginRight={"5px"}
-                                                                   minHeight="10px"/>
-                                                            Add to list
-                                                        </Button>
+                                                        <Link as={ReactLink} to={"/home"}
+                                                              textDecoration={"none !important"}>
+                                                            <Button colorScheme={"teal"} variant={"solid"}
+                                                                    width={"150px"}
+                                                                    bgColor={"teal.400"}
+                                                                    borderRadius={"10px"}
+                                                                    className={"banner__button play__button"}>
+                                                                <Image width={"25%"} src={video} marginRight={"5px"}
+                                                                       minHeight="10px"/>
+                                                                Watch
+                                                            </Button>
+                                                        </Link>
+                                                        <Link as={ReactLink} to={"/home"}
+                                                              textDecoration={"none !important"}>
+                                                            <Button colorScheme={"whiteAlpha"} variant={"outline"}
+                                                                    color={"teal.200"}
+                                                                    width={"150px"}
+                                                                    borderRadius={"15px"}
+                                                                    className={"banner__button"}>
+                                                                <Image width={"20%"} src={bookmark} marginRight={"5px"}
+                                                                       minHeight="10px"/>
+                                                                Add to list
+                                                            </Button>
+                                                        </Link>
                                                     </ButtonGroup>
                                                 </Box>
                                             </Stack>
