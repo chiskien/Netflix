@@ -21,7 +21,6 @@ export function transformSeries(series: TV[]): TV[] {
     })
     return series;
 }
-
 export function transformSeries2(series: TV): TV {
     // series.genres = await getGenresFrom(series);
     series.first_air_date_toDate = new Date(series.first_air_date);

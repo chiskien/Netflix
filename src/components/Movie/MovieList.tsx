@@ -1,7 +1,7 @@
 import {Movie, Response, TV} from "../../models/Movie";
 import React, {useCallback, useEffect, useState} from "react";
 import {MovieCard} from "./MovieCard";
-import {Box, Heading, SimpleGrid} from "@chakra-ui/react";
+import {Box, Heading, SimpleGrid, Skeleton} from "@chakra-ui/react";
 import {SeriesCard} from "../Series/SeriesCard";
 
 type MovieProps = {
@@ -60,22 +60,22 @@ export const MovieList: React.FC<MovieProps> = ({apiUrl, title, isMovie = true, 
             getSeries().then(r => console.log(r));
         }, [getSeries]);
     }
-    let content: JSX.Element;
-
     return (
         <Box marginTop={"20px"}>
-            <Heading as={"h2"} size={"xl"} marginBottom={"20px"} textColor={"#F5F5F4"}>
+            <Heading as={"h2"} size={"xl"} marginBottom={"20px"} textColor={"teal.50"}>
                 {title}
             </Heading>
-            <SimpleGrid columns={8} spacing={3} className={"movie__list"}>
-                {
-                    isMovie ? movies.map((movie) => (
-                            <MovieCard key={movie.id} movie={movie} isLoading={isLoading}/>))
-                        : series.map((tv) => (
-                            <SeriesCard key={tv.id} tv={tv} isLoading={isLoading}/>
-                        ))
-                }
-            </SimpleGrid>
+            <Skeleton isLoaded={!isLoading}>
+                <SimpleGrid columns={8} spacing={3} className={"movie__list"}>
+                    {
+                        isMovie ? movies.map((movie) => (
+                                <MovieCard key={movie.id} movie={movie} isLoading={isLoading}/>))
+                            : series.map((tv) => (
+                                <SeriesCard key={tv.id} tv={tv} isLoading={isLoading}/>
+                            ))
+                    }
+                </SimpleGrid>
+            </Skeleton>
         </Box>
     );
 }

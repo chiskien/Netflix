@@ -51,22 +51,22 @@ export const Banner: React.FC = () => {
     }, [loadOriginals2])
 
     return (
-        <Box>
-            <Swiper
-                slidesPerView={1}
-                spaceBetween={10}
-                loop={true}
-                autoplay={{
-                    delay: 3000,
-                    disableOnInteraction: false
-                }}
-                pagination={{clickable: true,}}
-                modules={[Autoplay, Pagination, Navigation]}>
-                {
-                    heroSectionSeriesArr.map((tv) =>
-                        (
-                            <Skeleton isLoaded={!isLoading}>
-                                <SwiperSlide>
+        <Skeleton isLoaded={!isLoading}>
+            <Box>
+                <Swiper
+                    slidesPerView={1}
+                    spaceBetween={10}
+                    loop={true}
+                    autoplay={{
+                        delay: 3000,
+                        disableOnInteraction: false
+                    }}
+                    pagination={{clickable: true,}}
+                    modules={[Autoplay, Pagination, Navigation]}>
+                    {
+                        heroSectionSeriesArr.map((tv) =>
+                            (
+                                <SwiperSlide key={tv.id}>
                                     <Box className={"banner"} marginBottom={"40px"}
                                          bgImage={`url("https://image.tmdb.org/t/p/original/${tv.backdrop_path}")`}
                                          bgPosition={"center top"}
@@ -142,13 +142,13 @@ export const Banner: React.FC = () => {
                                         </Box>
                                     </Box>
                                 </SwiperSlide>
-                            </Skeleton>
+                            )
                         )
-                    )
-                }
+                    }
 
-            </Swiper>
-        </Box>
+                </Swiper>
+            </Box>
+        </Skeleton>
 
     )
 }

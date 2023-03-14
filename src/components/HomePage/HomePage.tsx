@@ -1,23 +1,28 @@
-import React, {useState} from "react";
-import {MovieList} from "../Movie/MovieList";
+import React, {useEffect, useState} from "react";
 import {Box, Button, ButtonGroup, Container, Flex, Heading} from "@chakra-ui/react";
-import {
-    hboOriginalsUrl,
-    netflixOriginalsUrl,
-    popularMoviesUrl,
-    topRatedMoviesUrl
-} from "../../services/endpoints.service";
 import {Disclaimer} from "./Disclaimer";
 import "./HomePage.scss";
+import {MoviesHomePage} from "../Movie/MoviesHomePage";
+import {SeriesHomePage} from "../Series/SeriesHomePage";
 
 export const HomePage = () => {
-    const [isSeries, setIsSeries] = useState<boolean>(false);
-    const changeIsMovie = () => {
-        setIsSeries(false);
+    const [isMovie, setIsMovie] = useState<boolean>(true);
+    const [contents, setContents] = useState<JSX.Element>(<div></div>);
+
+    const switchToMovies = () => {
+        setIsMovie(true);
     }
-    const changeIsSeries = () => {
-        setIsSeries(true);
+    const switchToSeries = () => {
+        setIsMovie(false);
     }
+    useEffect(() => {
+        if (isMovie) {
+            setContents(<MoviesHomePage isMovie={isMovie}/>);
+        } else {
+            setContents(<SeriesHomePage isMovie={!isMovie}/>);
+        }
+    }, [isMovie]);
+
 
     return (
         <Container minW={"container.xl"}>
@@ -29,36 +34,22 @@ export const HomePage = () => {
                 </Heading>
                 <ButtonGroup gap={1}>
                     <Button colorScheme={"teal"} variant={"solid"}
-                            isActive={!isSeries}
-                            onClick={changeIsMovie}>
+                            isActive={isMovie}
+                            onClick={switchToMovies}>
                         Movies
                     </Button>
                     <Button colorScheme={"teal"} variant={"solid"}
-                            isActive={isSeries}
-                            onClick={changeIsSeries}>
+                            isActive={!isMovie}
+                            onClick={switchToSeries}>
                         TV Series
                     </Button>
 
                     <Button colorScheme={"teal"} variant={"solid"}>My List</Button>
                 </ButtonGroup>
             </Flex>
-            {
-                isSeries ?
-                    (<Box>
-                        {/*<BestPicksForYouSeries title={"Best Picks For You"}/>*/}
-                        <MovieList title={"HBO Originals"} apiUrl={`${hboOriginalsUrl}`} page={1} isMovie={false}/>
-                        <MovieList title={"Netflix Originals"} page={1} apiUrl={`${netflixOriginalsUrl}`}
-                                   isMovie={false}/>
-                    </Box>)
-                    :
-                    (<Box>
-                        <MovieList title={"Most popular movies"} apiUrl={`${popularMoviesUrl}`} page={1}
-                                   isMovie={true}/>
-                        <MovieList title={"Most Rated Movies"} page={1} apiUrl={`${topRatedMoviesUrl}`} isMovie={true}/>
-                    </Box>)
-            }
-
-
+            <Box>
+                {contents}
+            </Box>
         </Container>
     )
 }
