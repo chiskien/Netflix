@@ -92,10 +92,10 @@ export const Banner: React.FC = () => {
                                                            mt={"20px"} mb={"40px"}>
                                                         <Button colorScheme={"teal"} height={"1.5rem"}
                                                                 width={"1.5rem"}>HD</Button>
-                                                        <Text
-                                                            className={"banner_textShadow"}>{tv.first_air_date_toDate.getFullYear()}</Text>
-                                                        <Text
-                                                            className={"banner_textShadow"}>{tv.episode_run_time}m</Text>
+                                                        <Text color={"teal.50"}
+                                                              className={"banner_textShadow"}>{tv.first_air_date_toDate.getFullYear()}</Text>
+                                                        <Text color={"teal.50"}
+                                                              className={"banner_textShadow"}>{tv.episode_run_time}m</Text>
                                                         <Stack spacing={"5px"} direction={"row"}
                                                                className="banner__information">
 

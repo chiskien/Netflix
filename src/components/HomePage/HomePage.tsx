@@ -29,7 +29,7 @@ export const HomePage = () => {
             <Disclaimer/>
             <Flex marginBottom={"20px"} gap={5} marginTop={"20px"} alignItems={"center"}>
                 <Heading size={"lg"}
-                         textColor={"#F5F5F4"}>
+                         textColor={"teal.50"}>
                     Recommend
                 </Heading>
                 <ButtonGroup gap={1}>
@@ -43,8 +43,6 @@ export const HomePage = () => {
                             onClick={switchToSeries}>
                         TV Series
                     </Button>
-
-                    <Button colorScheme={"teal"} variant={"solid"}>My List</Button>
                 </ButtonGroup>
             </Flex>
             <Box>
