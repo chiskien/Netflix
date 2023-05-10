@@ -5,9 +5,11 @@ import React from "react";
 export const MoviesHomePage: React.FC<{ isMovie: boolean }> = ({isMovie}) => {
     return (
         <div>
-            <MovieList title={"Most popular movies"} apiUrl={`${popularMoviesUrl}`} page={1}
+            <MovieList title={"Most popular movies"}
+                       apiUrl={`${popularMoviesUrl}`} page={1}
                        isMovie={isMovie}/>
-            <MovieList title={"Most Rated Movies"} page={1} apiUrl={`${topRatedMoviesUrl}`}
+            <MovieList title={"Most Rated Movies"} page={1}
+                       apiUrl={`${topRatedMoviesUrl}`}
                        isMovie={isMovie}/>
         </div>
     )

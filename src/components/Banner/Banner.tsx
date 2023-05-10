@@ -75,7 +75,7 @@ export const Banner: React.FC = () => {
                                          objectFit={"contain"}
                                          bgSize={"cover"}
                                          position={"relative"}
-                                         height={"670px"}
+                                         height={"650px"}
                                          style={{}}>
                                         <Box height={"100%"} width={"100%"} position={"absolute"}
                                              className={"banner__overlay"}>

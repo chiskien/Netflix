@@ -1,6 +1,3 @@
-import {useEffect, useState} from "react";
-import {getAllNetworks} from "../../services/networks.service";
-import {Network} from "../../models/Movie";
 import {QueryClient, QueryClientProvider} from "react-query";
 import {TestDummies} from "./TestDummies";
 
